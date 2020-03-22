@@ -1,2 +1,2 @@
 # adbose.github.io
-Personal website build with Gihub Pages
+Personal website built with Gihub Pages
