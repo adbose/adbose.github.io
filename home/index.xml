@@ -18,9 +18,8 @@
          
          <guid>https://adbose.github.io/home/hello-world/</guid>
          <description>&lt;p&gt;Hello, and welcome to my site! I am glad that you stopped by.&lt;/p&gt;
-&lt;p&gt;This site is a place for me to talk about technology and programming while also trying to document my experiences and lessons working in software development.&lt;/p&gt;
-&lt;p&gt;Feel free to browse around and leave any comments. You can find new updates here or on my Twitter.&lt;/p&gt;
-&lt;p&gt;You can read more about me here or reach out to me here.&lt;/p&gt;
+&lt;p&gt;This site is mainly a professional journal where I try to write about technology and programming while also trying to document my experiences and lessons working in software development.&lt;/p&gt;
+&lt;p&gt;Feel free to browse around and leave any comments. You can read more about me &lt;a href=&#34;../../about&#34;&gt;here&lt;/a&gt; or find my latest updates &lt;a href=&#34;.&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;See you around!&lt;/p&gt;
 &lt;p&gt;Cheers!!&lt;/p&gt;
 </description>

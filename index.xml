@@ -17,9 +17,17 @@
          <pubDate>Mon, 23 Mar 2020 02:26:23 +0530</pubDate>
          
          <guid>https://adbose.github.io/about/</guid>
-         <description>&lt;p&gt;&lt;code&gt;Waves are the practice of the water&lt;/code&gt;
-Shunryu Suzuki&lt;/p&gt;
+         <description>&lt;p&gt;&lt;code&gt;Waves are the practice of the water&lt;/code&gt; - Shunryu Suzuki&lt;/p&gt;
 </description>
+       </item>
+       
+       <item>
+         <title>Posts</title>
+         <link>https://adbose.github.io/posts/</link>
+         <pubDate>Thu, 09 Apr 2020 02:29:14 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/</guid>
+         <description></description>
        </item>
        
        <item>
@@ -28,15 +36,6 @@ Shunryu Suzuki&lt;/p&gt;
          <pubDate>Mon, 23 Mar 2020 02:39:30 +0530</pubDate>
          
          <guid>https://adbose.github.io/home/</guid>
-         <description></description>
-       </item>
-       
-       <item>
-         <title>Posts</title>
-         <link>https://adbose.github.io/posts/</link>
-         <pubDate>Mon, 23 Mar 2020 02:29:14 +0530</pubDate>
-         
-         <guid>https://adbose.github.io/posts/</guid>
          <description></description>
        </item>
        
