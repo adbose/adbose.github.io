@@ -81,9 +81,6 @@
             <em>
                 
                     
-                    <a href="https://adbose.github.io/tags/covid19">#covid19</a>
-                
-                    , 
                     <a href="https://adbose.github.io/tags/whatsapp">#whatsapp</a>
                 
                     , 
@@ -107,9 +104,9 @@
 <p>One such platform is WhatsApp, which for being the most popular messaging application in the world, is rapidly gaining interest among businesses to connect with their customers using the WhatsApp Business API.
 Usually, WhatsApp takes several weeks for approving a WhatsApp Business account if applied directly. But with one of it&rsquo;s official service providers like Twilio, it could take only about a couple of weeks.</p>
 <p>Let us explore the Twilio API for WhatsApp to start interacting with WhatsApp programmatically.</p>
-<p>The first step is to create a free Twilio account. All new users get a $15 trial credit on signup which can be used to purchase a new number and test the platform.
-To start using the Twilio API for WhatsApp in production, we need to purchase a number from Twilio and apply for a WhatsApp Business profile.
-We are going to skip purchasing a number for now and directly start developing, and test it using the Sandbox in the console.</p>
+<p>The first step is to create a free Twilio account. All new users get a $15 bonus trial credit on signup to test out their platform.
+To start using the Twilio API for WhatsApp in production, we will need to purchase a number from Twilio and apply for a WhatsApp Business profile.
+We are going to skip this step for now and directly start developing our application, and test it out using the Sandbox in the console.</p>
 <p>I will be using Python3 on my local development machine running Linux.</p>
 <p>First, we need to copy the Accound SID and Auth Token from the Twilio console, and use them to set our environment variables that will allow our Python script to access our Twilio account and use the API.</p>
 <p>From the terminal, run the export command to set our environment variables named <code>TWILIO_ACCOUNT_SID</code> and <code>TWILIO_AUTH_TOKEN</code>, as shown below:</p>
@@ -145,8 +142,8 @@ client.messages.create(body='Hello, world!',
                        from_=from_whatsapp_number,
                        to=to_whatsapp_number)
 </code></pre><p>The above code imports the Twilio Python helper library, instantiates the helper library client, sets a from and to WhatsApp number, and then sends a single message with the client.messages.create function call.</p>
-<p>Our Python script is now ready, and we just need to activate the Twilio WhatsApp sandbox from the Twilio console to test it out.</p>
-<p>From the WhatsApp <a href="https://www.twilio.com/console/sms/whatsapp/learn">page</a> in the Twilio Console, note the default sandbox WhatsApp number provided by Twilio and the sandbox keyword.
+<p>Our Python script is now ready, and we just need to activate the WhatsApp sandbox from the Twilio console to test it out.</p>
+<p>From the WhatsApp <a href="https://www.twilio.com/console/sms/whatsapp/learn">page</a> in the Twilio Console, note the default sandbox number provided by Twilio and the sandbox keyword.
 Open WhatsApp on your device, and send <code>join &lt;your sandbox keyword&gt;</code> to the sandbox number to connect to it. You should receive a reply from the number confirming that you have been connected to the sandbox.</p>
 <p>That&rsquo;s it! With the virtual environment activated, and the environment variables set, you are now ready to receive messages sent by your app from the sandbox you have connected to.
 To disconnect from the sandbox, simply send <code>stop</code>.</p>
