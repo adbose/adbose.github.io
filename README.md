@@ -1,2 +1,2 @@
 # adbose.github.io
-Public repository of personal website built with Hugo
+Personal website built with Hugo and powererd by Github Pages.
