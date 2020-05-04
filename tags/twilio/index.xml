@@ -12,12 +12,12 @@
        
        
        <item>
-         <title>Exploring Alternatives</title>
+         <title>WhatsApp</title>
          <link>https://adbose.github.io/posts/02/</link>
          <pubDate>Fri, 17 Apr 2020 02:29:14 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/02/</guid>
-         <description>&lt;p&gt;Last week, I decided to build a Twitter bot to tweet out the latest Covid-19 cases and news tracked by &lt;a href=&#34;https://www.worldometers.info/coronavirus/&#34;&gt;Worldometers&lt;/a&gt;.&lt;/p&gt;
+         <description>&lt;p&gt;Last week, I decided to build a Twitter bot to tweet out the latest Covid-19 cases and news tracked by &lt;a href=&#34;https://www.worldometers.info/coronavirus/&#34;&gt;Worldometers&lt;/a&gt; and &lt;a href=&#34;https://www.covid19india.org&#34;&gt;India Covid-19 Tracker&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;While waiting for my developer account request to get approved by Twitter (which is taking rather longer than usual), I started looking into some other platforms where I could start developing right away.&lt;/p&gt;
 &lt;p&gt;One such platform is WhatsApp, which for being the most popular messaging application in the world, is rapidly gaining interest among businesses to connect with their customers using the WhatsApp Business API.
 Usually, WhatsApp takes several weeks for approving a WhatsApp Business account if applied directly. But with one of it&amp;rsquo;s official service providers like Twilio, it could take only about a couple of weeks.&lt;/p&gt;
@@ -59,7 +59,7 @@ to_whatsapp_number=&#39;whatsapp:+xxxxxxxxxxx&#39;
 client.messages.create(body=&#39;Hello, world!&#39;,
                        from_=from_whatsapp_number,
                        to=to_whatsapp_number)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The above code imports the Twilio Python helper library, instantiates the helper library client, sets a from and to WhatsApp number, and then sends a single message with the client.messages.create function call.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The above code imports the Twilio Python helper library, instantiates the helper library client, sets a from and to WhatsApp number, and then sends a single message with the &lt;code&gt;client.messages.create()&lt;/code&gt; function call.&lt;/p&gt;
 &lt;p&gt;Our Python script is now ready, and we just need to activate the WhatsApp sandbox from the Twilio console to test it out.&lt;/p&gt;
 &lt;p&gt;From the WhatsApp &lt;a href=&#34;https://www.twilio.com/console/sms/whatsapp/learn&#34;&gt;page&lt;/a&gt; in the Twilio Console, note the default sandbox number provided by Twilio and the sandbox keyword.
 Open WhatsApp on your device, and send &lt;code&gt;join &amp;lt;your sandbox keyword&amp;gt;&lt;/code&gt; to the sandbox number to connect to it. You should receive a reply from the number confirming that you have been connected to the sandbox.&lt;/p&gt;

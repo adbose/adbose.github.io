@@ -66,7 +66,7 @@
 
 <article>
 
-    <h1>Exploring Alternatives</h1>
+    <h1>WhatsApp</h1>
 
     
         <aside>
@@ -84,10 +84,10 @@
                     <a href="https://adbose.github.io/tags/whatsapp">#whatsapp</a>
                 
                     , 
-                    <a href="https://adbose.github.io/tags/python">#python</a>
+                    <a href="https://adbose.github.io/tags/twilio">#twilio</a>
                 
                     , 
-                    <a href="https://adbose.github.io/tags/twilio">#twilio</a>
+                    <a href="https://adbose.github.io/tags/python">#python</a>
                 
             </em>
         </li>
@@ -99,7 +99,7 @@
 
     
 
-    <p>Last week, I decided to build a Twitter bot to tweet out the latest Covid-19 cases and news tracked by <a href="https://www.worldometers.info/coronavirus/">Worldometers</a>.</p>
+    <p>Last week, I decided to build a Twitter bot to tweet out the latest Covid-19 cases and news tracked by <a href="https://www.worldometers.info/coronavirus/">Worldometers</a> and <a href="https://www.covid19india.org">India Covid-19 Tracker</a>.</p>
 <p>While waiting for my developer account request to get approved by Twitter (which is taking rather longer than usual), I started looking into some other platforms where I could start developing right away.</p>
 <p>One such platform is WhatsApp, which for being the most popular messaging application in the world, is rapidly gaining interest among businesses to connect with their customers using the WhatsApp Business API.
 Usually, WhatsApp takes several weeks for approving a WhatsApp Business account if applied directly. But with one of it&rsquo;s official service providers like Twilio, it could take only about a couple of weeks.</p>
@@ -141,7 +141,7 @@ to_whatsapp_number='whatsapp:+xxxxxxxxxxx'
 client.messages.create(body='Hello, world!',
                        from_=from_whatsapp_number,
                        to=to_whatsapp_number)
-</code></pre><p>The above code imports the Twilio Python helper library, instantiates the helper library client, sets a from and to WhatsApp number, and then sends a single message with the client.messages.create function call.</p>
+</code></pre><p>The above code imports the Twilio Python helper library, instantiates the helper library client, sets a from and to WhatsApp number, and then sends a single message with the <code>client.messages.create()</code> function call.</p>
 <p>Our Python script is now ready, and we just need to activate the WhatsApp sandbox from the Twilio console to test it out.</p>
 <p>From the WhatsApp <a href="https://www.twilio.com/console/sms/whatsapp/learn">page</a> in the Twilio Console, note the default sandbox number provided by Twilio and the sandbox keyword.
 Open WhatsApp on your device, and send <code>join &lt;your sandbox keyword&gt;</code> to the sandbox number to connect to it. You should receive a reply from the number confirming that you have been connected to the sandbox.</p>
@@ -158,9 +158,13 @@ To disconnect from the sandbox, simply send <code>stop</code>.</p>
     <ul>
         
         <li>
-            <a href="https://adbose.github.io/posts/01/"><i class="fa fa-chevron-circle-left"></i> Tracking Coronavirus</a>
+            <a href="https://adbose.github.io/posts/01/"><i class="fa fa-chevron-circle-left"></i> Isolation</a>
         </li>
         
+        
+        <li>
+            <a href="https://adbose.github.io/posts/03/">Tracking Coronavirus <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
         
     </ul>
 </section>
