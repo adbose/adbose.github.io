@@ -1,14 +1,14 @@
 
    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
      <channel>
-       <title>twilio on Aditya Bose</title>
-       <link>https://adbose.github.io/tags/twilio/</link>
-       <description>Recent content in twilio on Aditya Bose</description>
+       <title>twiliohackathon on Aditya Bose</title>
+       <link>https://adbose.github.io/tags/twiliohackathon/</link>
+       <description>Recent content in twiliohackathon on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
        <lastBuildDate>Sat, 09 May 2020 20:47:09 +0530</lastBuildDate>
        
-           <atom:link href="https://adbose.github.io/tags/twilio/index.xml" rel="self" type="application/rss+xml" />
+           <atom:link href="https://adbose.github.io/tags/twiliohackathon/index.xml" rel="self" type="application/rss+xml" />
        
        
        <item>
@@ -46,65 +46,6 @@ Using the location data, we were able to provide case stats by district, zone in
 &lt;p&gt;You can find the code for the project on &lt;a href=&#34;https://github.com/adbose/covid-india-whatsapp-tracker&#34;&gt;Github&lt;/a&gt; along with the instructions to clone and run it locally with the Twilio Sandbox for WhatsApp using &lt;code&gt;ngrok&lt;/code&gt; to expose the local instance of your app to Twilio&amp;rsquo;s webhook endpoint URL.
 You can also read my submission post on &lt;a href=&#34;https://dev.to/adbose/twilio-hackathon-submission-a-location-based-covid-19-whatsapp-tracker-for-india-1oi3&#34;&gt;dev.to&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Stay tuned for more updates on this project!&lt;/p&gt;
-</description>
-       </item>
-       
-       <item>
-         <title>WhatsApp</title>
-         <link>https://adbose.github.io/posts/02/</link>
-         <pubDate>Fri, 17 Apr 2020 02:29:14 +0530</pubDate>
-         
-         <guid>https://adbose.github.io/posts/02/</guid>
-         <description>&lt;p&gt;Last week, I decided to build a Twitter bot to tweet out the latest Covid-19 cases and news tracked by &lt;a href=&#34;https://www.worldometers.info/coronavirus/&#34;&gt;Worldometers&lt;/a&gt; and &lt;a href=&#34;https://www.covid19india.org&#34;&gt;India Covid-19 Tracker&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;While waiting for my developer account request to get approved by Twitter (which is taking rather longer than usual), I started looking into some other platforms where I could start developing right away.&lt;/p&gt;
-&lt;p&gt;One such platform is WhatsApp, which for being the most popular messaging application in the world, is rapidly gaining interest among businesses to connect with their customers using the WhatsApp Business API.
-Usually, WhatsApp takes several weeks for approving a WhatsApp Business account if applied directly. But with one of it&amp;rsquo;s official service providers like Twilio, it could take only about a couple of weeks.&lt;/p&gt;
-&lt;p&gt;Let us explore the Twilio API for WhatsApp to start interacting with WhatsApp programmatically.&lt;/p&gt;
-&lt;p&gt;The first step is to create a free Twilio account. All new users get a $15 bonus trial credit on signup to test out their platform.
-To start using the Twilio API for WhatsApp in production, we will need to purchase a number from Twilio and apply for a WhatsApp Business profile.
-We are going to skip this step for now and directly start developing our application, and test it out using the Sandbox in the console.&lt;/p&gt;
-&lt;p&gt;I will be using Python3 on my local development machine running Linux.&lt;/p&gt;
-&lt;p&gt;First, we need to copy the Accound SID and Auth Token from the Twilio console, and use them to set our environment variables that will allow our Python script to access our Twilio account and use the API.&lt;/p&gt;
-&lt;p&gt;From the terminal, run the export command to set our environment variables named &lt;code&gt;TWILIO_ACCOUNT_SID&lt;/code&gt; and &lt;code&gt;TWILIO_AUTH_TOKEN&lt;/code&gt;, as shown below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39; 
-# paste in your Account SID between single quotes
-
-export TWILIO_AUTH_TOKEN=&#39;&amp;lt;your twilio authentication token&amp;gt;&#39;
-# paste in your Auth Token between single quotes
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With our environment variables now set, we are ready to write our Python script and test it out. But first, we are going to create a new directory for our project. We are going to call it &lt;code&gt;whatsapp-test-bot&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;From the terminal, run the command below to create our directory:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mkdir whatsapp-test-bot
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, we are going to create a new virtual environment to keep our dependencies isolated from other projects.
-Navigate to our newly created directory, and create a new virtual environment using the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;python3 -m venv whatsapp_test_env
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or, if you have the virtualenv python package installed, run&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;virtualenv whatsapp_test_env
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After creating the virtual environment, activate it using the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;source ./whatsapp_test_env/bin/activate
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, install the Twilio Python helper library into the virtual environment:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;pip install twilio
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, create a file named &lt;code&gt;app.py&lt;/code&gt; and add the following code:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;from twilio.rest import Client
-
-# client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
-client = Client()
-
-# this is the Twilio sandbox testing number
-from_whatsapp_number=&#39;whatsapp:+14155238886&#39;
-# add your own WhatsApp Messaging number here
-to_whatsapp_number=&#39;whatsapp:+xxxxxxxxxxx&#39;
-
-client.messages.create(body=&#39;Hello, world!&#39;,
-                       from_=from_whatsapp_number,
-                       to=to_whatsapp_number)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The above code imports the Twilio Python helper library, instantiates the helper library client, sets a from and to WhatsApp number, and then sends a single message with the &lt;code&gt;client.messages.create()&lt;/code&gt; function call.&lt;/p&gt;
-&lt;p&gt;Our Python script is now ready, and we just need to activate the WhatsApp sandbox from the Twilio console to test it out.&lt;/p&gt;
-&lt;p&gt;From the WhatsApp &lt;a href=&#34;https://www.twilio.com/console/sms/whatsapp/learn&#34;&gt;page&lt;/a&gt; in the Twilio Console, note the default sandbox number provided by Twilio and the sandbox keyword.
-Open WhatsApp on your device, and send &lt;code&gt;join &amp;lt;your sandbox keyword&amp;gt;&lt;/code&gt; to the sandbox number to connect to it. You should receive a reply from the number confirming that you have been connected to the sandbox.&lt;/p&gt;
-&lt;p&gt;That&amp;rsquo;s it! With the virtual environment activated, and the environment variables set, you are now ready to receive messages sent by your app from the sandbox you have connected to.
-To disconnect from the sandbox, simply send &lt;code&gt;stop&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;In the next part of this story, we will go beyond the basics, and look at the process of actually building a chatbot that would scrape Worldometers for the latest data on Coronavirus, and respond to user queries with accurate results from the website.&lt;/p&gt;
-&lt;p&gt;See you in the next one!&lt;/p&gt;
 </description>
        </item>
        

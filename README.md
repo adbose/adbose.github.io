@@ -1,2 +1,3 @@
 # adbose.github.io
-Personal website built with Hugo and powererd by Github Pages.
+Personal website built with Hugo and hosted on Github Pages.
+
