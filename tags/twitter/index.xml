@@ -1,0 +1,48 @@
+
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>twitter on Aditya Bose</title>
+       <link>https://adbose.github.io/tags/twitter/</link>
+       <description>Recent content in twitter on Aditya Bose</description>
+       <generator>Hugo -- gohugo.io</generator>
+       <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
+       <lastBuildDate>Sat, 16 May 2020 13:56:48 +0530</lastBuildDate>
+       
+           <atom:link href="https://adbose.github.io/tags/twitter/index.xml" rel="self" type="application/rss+xml" />
+       
+       
+       <item>
+         <title>A Covid-19 Tweeter</title>
+         <link>https://adbose.github.io/posts/04/</link>
+         <pubDate>Sat, 16 May 2020 13:56:48 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/04/</guid>
+         <description>&lt;p&gt;So I finally got developer account access from Twitter to post automated coronavirus updates which I had applied for last &lt;a href=&#34;../01&#34;&gt;month&lt;/a&gt;.
+In this part, we will look at the process of creating an app, and developing the code to post tweets programmatically.&lt;/p&gt;
+&lt;p&gt;We are going to use Python3 as our programming language and the &lt;code&gt;tweepy&lt;/code&gt; python library to access Twiiter&amp;rsquo;s APIs, along with &lt;code&gt;lxml&lt;/code&gt; to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.&lt;/p&gt;
+&lt;p&gt;First, we go to the &lt;a href=&#34;https://developer.twitter.com/en/apps&#34;&gt;apps page&lt;/a&gt; and create an app. We give an app name, add a description and a website url. dd description and a website url. At the bottom, we need to describe briefly how we are going to use the app, and press create.&lt;/p&gt;
+&lt;p&gt;Once created, go to the &lt;em&gt;Keys and Tokens&lt;/em&gt; tab, and generate Access Token and Access Token Secret, and copy them along with the consumer API keys in a python file called &lt;em&gt;config.py&lt;/em&gt; as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CONSUMER_KEY = &#39;&amp;lt;API key&amp;gt;&#39;
+CONSUMER_SECRET = &#39;&amp;lt;API secret key&amp;gt;&#39;
+ACCESS_TOKEN = &#39;&amp;lt;Access token&amp;gt;&#39;
+ACCESS_TOKEN_SECRET = &#39;&amp;lt;Access token secret&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the same folder as &lt;em&gt;config.py&lt;/em&gt;, create another python file called &lt;em&gt;app.py&lt;/em&gt; and import the tweepy module, the keys from config and authenticate the app as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, create an API object and verify the access credentials as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;api = tweepy.API(auth)
+api.verify_credentials()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We are now ready to compose our tweet and post it to Twitter.&lt;/p&gt;
+&lt;p&gt;We use the &lt;code&gt;requests&lt;/code&gt; library to fetch the data for our tweet from Worldometers, parse it using &lt;code&gt;xpath&lt;/code&gt; and save it in a variable called &lt;em&gt;tweet&lt;/em&gt;. We can then post our tweet using a single line of code as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;api.update_status(tweet)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To post the tweet, simply run the &lt;em&gt;app.py&lt;/em&gt; from the console with the command&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ python app.py
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We now have a basic Twitter bot ready, and can post tweets whenever we run our script. Feel free to checkout the code on &lt;a href=&#34;https://github.com/adbose/covid-tweeter&#34;&gt;Github&lt;/a&gt; and send PRs to improve this bot.&lt;/p&gt;
+&lt;p&gt;Also, follow the bot &lt;a href=&#34;https://twitter.com/covidtrackerbot&#34;&gt;@covidtrackerbot&lt;/a&gt; on Twitter, and press the bell icon to get notified whenever there is a new tweet.&lt;/p&gt;
+&lt;p&gt;Our next steps would be to host it online and add more functionality like tweeting periodically from an infinite loop, or tweeting country-wise stats as they are updated on Worldometer.&lt;/p&gt;
+&lt;p&gt;Stay tuned for updates!&lt;/p&gt;
+</description>
+       </item>
+       
+     </channel>
+   </rss>
