@@ -87,7 +87,7 @@
         </li>
         
 
-        <li>3 minutes read</li>
+        <li>5 minutes read</li>
     </ul>
 </aside>
 
@@ -103,9 +103,9 @@
 <li>Working directory (or working tree)</li>
 <li>Staging area</li>
 </ul>
-<p>The Git directory (located in YOUR-PROJECT-PATH/.git/) is where Git stores everything it needs to accurately track the project. This includes metadata and an object database which includes compressed versions of the project files.</p>
-<p>The working directory is where a user makes local changes to a project. The working directory pulls the project’s files from the Git directory’s object database and places them on the user’s local machine.</p>
-<p>The staging area is a file (also called the “index”, “stage”, or “cache”) that stores information about what will go into your next commit. Staging is therefore the process of adding or removing files to the staging area to be committed. A commit is when you tell Git to save these staged changes. Git takes a snapshot of the files as they are and permanently stores that snapshot in the Git directory.</p>
+<p>The <strong>Git directory</strong> (located in YOUR-PROJECT-PATH/.git/) is where Git stores everything it needs to accurately track the project. This includes metadata and an object database which includes compressed versions of the project files.</p>
+<p>The <strong>working directory</strong> is where a user makes local changes to a project. The working directory pulls the project’s files from the Git directory’s object database and places them on the user’s local machine.</p>
+<p>The <strong>staging area</strong> is a file (also called the “index”, “stage”, or “cache”) that stores information about what will go into your next commit. Staging is therefore the process of adding or removing files to the staging area to be committed. A commit is when you tell Git to save these staged changes. Git takes a snapshot of the files as they are and permanently stores that snapshot in the Git directory.</p>
 <h3 id="getting-started">Getting Started</h3>
 <p>To use Git in your projects, you need to first install it (if not already installed) in your system by following the instructions <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
 <p>Verify if Git is installed by using the following command in the terminal:</p>
@@ -120,7 +120,36 @@
 <p>To see all your configuration settings, use the command <code>git config --list</code>.</p>
 <h3 id="initialize-git-in-a-project">Initialize Git in a Project</h3>
 <p>Once Git is installed and configured on your computer, you need to initialize it in your project to start using it for version control.</p>
-<p>In the command line, use the <code>cd</code> command to navigate to the root level directory of your project, and run the command <code>git init</code>. This installs a <strong>Git directory</strong> (<code>.git/</code> folder with all the files and objects Git needs to track your project.</p>
+<p>In the command line, use the <code>cd</code> command to navigate to the root level directory of your project, and run the command <code>git init</code>. This installs a <strong>Git directory</strong> (<em>.git/</em> folder with all the files and objects Git needs to track your project.</p>
+<h3 id="adding-and-committing-your-work">Adding and Committing your work</h3>
+<p>Once initialized, Git will start tracking the changes you make within the working directory of your project. You can check the status of your <em>working tree</em> with the command <code>git status</code> which shows important details about your project like current branch, and all the changes, staged or unstaged for committing.
+To add the changes to the staging area, use the <code>git add</code> command followed by the files and directories to be added for commit.
+For example:</p>
+<pre><code>git add file1 file2 dir1/file3 dir2/
+</code></pre><p>Once addedd for staging, the changes can be committed with a commit message like below:</p>
+<pre><code>git commit -m &quot;Initial commit&quot;
+</code></pre><h3 id="branches">Branches</h3>
+<p>A branch is nothing but a pointer to the latest commit in the Git repository referenced by HEAD. So currently, you are in the <em>master</em> branch which is a pointer to the commit with the message “Initial commit”. Whenever you make a commit, HEAD is updated with the latest commit.</p>
+<p>To work on a new task on the project, it is always advisable to create a new branch to avoid breaking the changes committed so far.</p>
+<p>Create a new branch called <em>mylocalbranch</em> and switch to that branch to start working on without affecting the master branch:</p>
+<pre><code>git checkout -b mylocalbranch
+</code></pre><p>You can view all the branches in your repository with the <code>git branch</code> command, and switch between branches using the <code>git checkout &lt;branch_name&gt;</code> command.</p>
+<p>Once you&rsquo;re done with your changes, you can commit the changes and merge them to the master branch:</p>
+<pre><code>git commit -m &quot;Commit changes to mylocalbranch&quot;
+git checkout master
+git merge mylocalbranch
+</code></pre><p>After this, you can safely delete that branch with the <code>git branch</code> command along with the <code>-D</code> flag like so:</p>
+<pre><code>git branch -D mylocalbranch
+</code></pre><p>You can run <code>git log</code> to see the commit history of your repository.</p>
+<h3 id="working-with-remotes">Working with Remotes</h3>
+<p>When working on a collaborative project, each collaborator works on a local copy of the project that sits on a remote repository, and periodically updates the remote with their local changes.</p>
+<p>For that, we use a hosted Git service, a popular one being <a href="https://github.com">Github</a>.</p>
+<p>You can start working on a local copy of an existing remote repository using the <code>git clone</code> command with the URL of the remote repository as argument or create a new remote repository and set it to track your local repository using the <code>git remote add origin</code> command with the URL of the remote repository as argument.</p>
+<p>To incorporate the changes from the remote into your local repository, use the <code>git pull</code> command which is the same as a <code>git fetch</code> followed by a <code>git merge</code>.</p>
+<p>To update the remote with your saved or committed local changes, use the <code>git push</code> command.</p>
+<p>Below is a visualization of a basic Git workflow:</p>
+<p><img src="https://raw.githubusercontent.com/adbose/personal-website/share/git_overview.png" alt="Git Overview"></p>
+<p>That&rsquo;s about it. These are the pretty much all the fundamentals needed to get started with Git. For a list of commonly used Git commands, please refer to this <a href="https://gist.github.com/adbose/e24ba1754cce1a02e2cfd807d7a06e9c">Gist</a>.</p>
 
 
 </article>
