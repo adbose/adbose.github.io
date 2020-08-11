@@ -12,7 +12,7 @@
        
        
        <item>
-         <title>How to Git</title>
+         <title>Git Smarter</title>
          <link>https://adbose.github.io/posts/05/</link>
          <pubDate>Sat, 06 Jun 2020 15:34:23 +0530</pubDate>
          
@@ -73,7 +73,8 @@ git merge mylocalbranch
 &lt;p&gt;To update the remote with your saved or committed local changes, use the &lt;code&gt;git push&lt;/code&gt; command.&lt;/p&gt;
 &lt;p&gt;Below is a visualization of a basic Git workflow:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/personal-website/share/git_overview.png&#34; alt=&#34;Git Overview&#34;&gt;&lt;/p&gt;
-&lt;p&gt;That&amp;rsquo;s about it. These are the pretty much all the fundamentals needed to get started with Git. For a list of commonly used Git commands, please refer to this &lt;a href=&#34;https://gist.github.com/adbose/e24ba1754cce1a02e2cfd807d7a06e9c&#34;&gt;Gist&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s pretty much all the fundamentals needed to get started with Git. For a list of some of the most commonly used Git commands, please refer to this &lt;a href=&#34;https://gist.github.com/adbose/e24ba1754cce1a02e2cfd807d7a06e9c&#34;&gt;Gist&lt;/a&gt;. I shall try to post some updates in future posts covering some advanced workflows in Git like resolving merge conflicts, resetting or reverting changes, rebasing, working with submodules, etc.&lt;/p&gt;
+&lt;p&gt;See you later!&lt;/p&gt;
 </description>
        </item>
        
