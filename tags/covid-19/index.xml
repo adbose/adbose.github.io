@@ -12,14 +12,14 @@
        
        
        <item>
-         <title>The Covid-19 Tweeter</title>
+         <title>Covid-19 Stats Tweeter</title>
          <link>https://adbose.github.io/posts/04/</link>
          <pubDate>Sat, 16 May 2020 13:56:48 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/04/</guid>
-         <description>&lt;p&gt;So I finally got developer account access from Twitter to post automated coronavirus updates which I had applied for last &lt;a href=&#34;../01&#34;&gt;month&lt;/a&gt;.
+         <description>&lt;p&gt;So I finally got developer account access from Twitter which I had applied for last &lt;a href=&#34;../01&#34;&gt;month&lt;/a&gt; to post automated coronavirus updates.
 In this part, we will look at the process of creating an app, and developing the code to post tweets programmatically.&lt;/p&gt;
-&lt;p&gt;We are going to use Python3 as our programming language and the &lt;code&gt;tweepy&lt;/code&gt; python library to access Twiiter&amp;rsquo;s APIs, along with &lt;code&gt;lxml&lt;/code&gt; to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.&lt;/p&gt;
+&lt;p&gt;We are going to use Python3 as our programming language and use the &lt;code&gt;tweepy&lt;/code&gt; python library to access Twitter&amp;rsquo;s APIs along with &lt;code&gt;lxml&lt;/code&gt; package to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.&lt;/p&gt;
 &lt;p&gt;First, we go to the &lt;a href=&#34;https://developer.twitter.com/en/apps&#34;&gt;apps page&lt;/a&gt; and create an app. We give an app name, add a description and a website url. dd description and a website url. At the bottom, we need to describe briefly how we are going to use the app, and press create.&lt;/p&gt;
 &lt;p&gt;Once created, go to the &lt;em&gt;Keys and Tokens&lt;/em&gt; tab, and generate Access Token and Access Token Secret, and copy them along with the consumer API keys in a python file called &lt;em&gt;config.py&lt;/em&gt; as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;CONSUMER_KEY = &#39;&amp;lt;API key&amp;gt;&#39;
@@ -40,7 +40,7 @@ api.verify_credentials()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We now have a basic Twitter bot ready, and can post tweets whenever we run our script. Feel free to checkout the code on &lt;a href=&#34;https://github.com/adbose/covid-tweeter&#34;&gt;Github&lt;/a&gt; and send PRs to improve this bot.&lt;/p&gt;
 &lt;p&gt;Also, follow the bot &lt;a href=&#34;https://twitter.com/covidtrackerbot&#34;&gt;@covidtrackerbot&lt;/a&gt; on Twitter, and press the bell icon to get notified whenever there is a new tweet.&lt;/p&gt;
 &lt;p&gt;Our next steps would be to host it online and add more functionality like tweeting periodically from an infinite loop, or tweeting country-wise stats as they are updated on Worldometer.&lt;/p&gt;
-&lt;p&gt;Stay tuned for updates!&lt;/p&gt;
+&lt;p&gt;Stay tuned for further updates!&lt;/p&gt;
 </description>
        </item>
        
@@ -55,16 +55,16 @@ api.verify_credentials()
 This seemed like a good opportunity to test out my ideas for a Covid Tracker as a WhatsApp bot.&lt;/p&gt;
 &lt;p&gt;We have already seen how we can import twilio to a python script to use it&amp;rsquo;s APIs to send messages to users.&lt;/p&gt;
 &lt;p&gt;In this project, we would create a Flask app and use Twilio&amp;rsquo;s &lt;code&gt;twiml&lt;/code&gt; APIs to send meaningful information based on user queries.&lt;/p&gt;
-&lt;p&gt;Our original intent from the &lt;a href=&#34;../01&#34;&gt;first&lt;/a&gt; post was to be able to get notified on the latest Covid-19 case stats. The easy solution that I wanted to implement was a Twitter bot that tweets every time it receives updated stats from it&amp;rsquo;s trusted data sources. Since I have yet not recevied **Developer access for Twitter, I deceided to implement an information system related to Covid-19 over WhatsApp. It is not free to send self initiated messages, and to be able to send such messages, one needs to apply for a Business Account with WhatsApp which again goes through an approval process which again takes several weeks. We are gonna worry about all that later, and start building and testing right away using the Twilio Sandbox for WhatsApp.&lt;/p&gt;
+&lt;p&gt;Our original intent from the &lt;a href=&#34;../01&#34;&gt;first&lt;/a&gt; post was to be able to get notified on the latest Covid-19 case stats. The easy solution that I wanted to implement was a Twitter bot that tweets every time it receives updated stats from it&amp;rsquo;s trusted data sources. Since I have yet not recevied Developer access for Twitter, I deceided to implement an information system related to Covid-19 over WhatsApp. It is not free to send self initiated messages, and to be able to send such messages, one needs to apply for a Business Account with WhatsApp which again goes through an approval process which again takes several weeks. We are gonna worry about all that later, and start building and testing right away using the Twilio Sandbox for WhatsApp.&lt;/p&gt;
 &lt;p&gt;My main objective for the Hackathon was to show daily and total Covid-19 cases in India. Using the location services of WhatsApp, we could also get nearby case statistics andn essential services information for users to have an idea of the neighbourhood they are in.&lt;/p&gt;
 &lt;p&gt;The project is developed using Python3.8 with the Flask web microframework, and uses Twilio&amp;rsquo;s Programmable SMS API for WhatsApp. Let us start by first installing &lt;code&gt;flask&lt;/code&gt; and &lt;code&gt;twilio&lt;/code&gt; in a new virtual environment, after which we can start developing by importing these dependencies in our code.&lt;/p&gt;
 &lt;p&gt;The next step is to source the data. For country level and total global Covid-19 stats, Worldometers is probably the most popular site on the Internet. They have paid licences starting $35/month to access their data APIs, but I didn&amp;rsquo;t wish to pay any money to get started with the project which is mainly an experimental one for educational purposes. So, using an open source MIT licence for fair and non-commercial use, I assumed I could safely scrape the publicly available data from their site and get all the country level stats at a given moment.&lt;/p&gt;
 &lt;p&gt;Given below is a script that we could write to fetch the current stats from Worldometers on the global cases, deaths and recoveries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    response = requests.get(&#39;https://www.worldometers.info/coronavirus/&#39;)
-    doc = html.fromstring(response.content)
-    country_names = doc.xpath(
-            &#39;//table[@id=&amp;quot;main_table_countries_today&amp;quot;]/tbody/tr/td[2]/a[contains(@href, &amp;quot;country/&amp;quot;)]/text()&#39;)
-            print(country_names)
+&lt;pre&gt;&lt;code&gt;response = requests.get(&#39;https://www.worldometers.info/coronavirus/&#39;)
+doc = html.fromstring(response.content)
+country_names = doc.xpath(
+    &#39;//table[@id=&amp;quot;main_table_countries_today&amp;quot;]/tbody/tr/td[2]/a[contains(@href, &amp;quot;country/&amp;quot;)]/text()&#39;)
+print(country_names)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The result will be a list of names of countries as they are written in the Worldometers site in the main stats table.
 To scrape the website more reliably, I decided to use the &lt;code&gt;lxml&lt;/code&gt; Python package to parse the site XML using &lt;code&gt;xpath&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Luckily, getting India specific data is easier. The site &lt;a href=&#34;covid19india.org&#34;&gt;covid19india.org&lt;/a&gt; provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page &lt;a href=&#34;https://api.covid19india.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;

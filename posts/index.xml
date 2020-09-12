@@ -6,13 +6,69 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 06 Jun 2020 15:34:23 +0530</lastBuildDate>
+       <lastBuildDate>Fri, 19 Jun 2020 11:39:54 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
        
        <item>
-         <title>Git Smarter</title>
+         <title>Blogging with Hugo</title>
+         <link>https://adbose.github.io/posts/06/</link>
+         <pubDate>Fri, 19 Jun 2020 11:39:54 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/06/</guid>
+         <description>&lt;p&gt;This blog is hosted for free on &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt;. But it is built using another service called Hugo. If you look at the site footer, you should find a link to their project website.&lt;/p&gt;
+&lt;p&gt;In their website, they say they are the world&amp;rsquo;s fastest framework for building websites. It is a static site generator written in Go with extremely fast build times (~1 ms per page). Content is written in markdown with front matter. Hugo then takes the source directory with content and templates and renders them into a full html website.&lt;/p&gt;
+&lt;p&gt;Below is a quick start introduction to Hugo to get your own blog up and running in less than 30 minutes.&lt;/p&gt;
+&lt;p&gt;The first thing that you need to do is install Hugo on your machine.&lt;/p&gt;
+&lt;p&gt;If you are on a Linux or Mac, you can use &lt;a href=&#34;https://brew.sh/&#34;&gt;Brew&lt;/a&gt; to install Hugo. For more options, see the official install docs &lt;a href=&#34;https://gohugo.io/getting-started/installing&#34;&gt;here&lt;/a&gt;. It&amp;rsquo;s also recommended to have &lt;a href=&#34;../05&#34;&gt;Git&lt;/a&gt; installed as well because it will make content management so much easier just like software version control.&lt;/p&gt;
+&lt;p&gt;To create a new site, simple run the command below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo new site mysite
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will create a new Hugo site in a folder named &lt;em&gt;mysite&lt;/em&gt;. Navigate into the directory, and initialise a git repository inside it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd mysite
+git init
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, you can add a theme to your site. I chose the &lt;em&gt;Kiera&lt;/em&gt; theme for my blog. You can choose any theme that suits your purpose from their collection of hundreds of themes &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;here&lt;/a&gt;. It&amp;rsquo;s recommended to download the theme into your site by using git submodule like below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git submodule add https://github.com/funkydan2/hugo-kiera.git themes/hugo-kiera
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A new &lt;em&gt;.gitmodules&lt;/em&gt; file will be created containing the local path and remote URL of the submodule.&lt;/p&gt;
+&lt;p&gt;Then, add the theme to the site configuration:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &#39;theme = &amp;quot;ananke&amp;quot;&#39; &amp;gt;&amp;gt; config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you can start creating content by using the hugo new command from the site root like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo new posts/my-first-post.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will create a post by the name &lt;em&gt;my-first-post&lt;/em&gt; in a &lt;em&gt;posts&lt;/em&gt; sub-directory inside the &lt;em&gt;content&lt;/em&gt; directory of the site.&lt;/p&gt;
+&lt;p&gt;Open the file in a text editor of your choice and start writing. Each new content file starts with some extra information about the post called front matter like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+++
+title = &amp;quot;My First Post&amp;quot;
+date: 2019-03-26T08:47:11+01:00
+draft: true
+tags = []
+categories = []
++++
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can start writing directly the contents below the front matter in markdown format as usual.&lt;/p&gt;
+&lt;p&gt;Once written, set the value of &lt;em&gt;drafts&lt;/em&gt; in your file&amp;rsquo;s front matter to &lt;code&gt;false&lt;/code&gt;, and launch a development server using the command&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo server
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By default, this command will not deploy the files which have &lt;em&gt;drafts&lt;/em&gt; as &lt;code&gt;true&lt;/code&gt;. (&lt;a href=&#34;https://gohugo.io/getting-started/usage/#draft-future-and-expired-content&#34;&gt;Read More&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;To deploy draft files, use the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo server -D
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once, you are satisfied with your changes, stop the server, and build your site by simply using the command:
+&lt;code&gt;hugo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To build the drafts too, use the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo -D
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Output will be in  the &lt;strong&gt;/public/&lt;/strong&gt; directory by default. You can change it by setting &lt;code&gt;publishDir&lt;/code&gt; to a directory name of your choice in the &lt;em&gt;config&lt;/em&gt; file. You may then deploy your site by copying the &lt;strong&gt;public/&lt;/strong&gt; directory to your production web server.&lt;/p&gt;
+&lt;p&gt;Now, to deploy this site using Github pages, simply create a repository of the name &lt;code&gt;username.github.io&lt;/code&gt; where &lt;em&gt;username&lt;/em&gt; is your Github account ID. It&amp;rsquo;s necessary to create the repo of that name because Github gives you a free website using your uniquie ID on the &lt;strong&gt;github.io&lt;/strong&gt; domain.&lt;/p&gt;
+&lt;p&gt;Clone the repository on your computer and add the contents of your site&amp;rsquo;s public directory into this new repo. Finally, commit and push. Your site should be live in a few minutes on your unique &lt;em&gt;github.io&lt;/em&gt; domain.&lt;/p&gt;
+&lt;p&gt;Before committing and pushing your &lt;strong&gt;mysite&lt;/strong&gt; repo to Github, first delete your public directory and add your &lt;em&gt;username.github.io&lt;/em&gt; repo as a submodule with the directory name &lt;strong&gt;public&lt;/strong&gt; like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rm -r public/
+git submodule add &amp;lt;Remote location of your username.github.io repo&amp;gt; public/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, every time you add new content to the site and build it, your &lt;em&gt;public&lt;/em&gt; directory will be updated. You can navigate inside the public directory and update your &lt;strong&gt;username.github.io&lt;/strong&gt; remote repository.&lt;/p&gt;
+&lt;p&gt;Once updated, navigate back to the &lt;strong&gt;mysite&lt;/strong&gt; root, and update its remote repository without pushing the contents of your theme or public directory. Instead, only a refernce to specific commits are added.
+(&lt;a href=&#34;https://github.com/adbose/personal-website&#34;&gt;See example&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s pretty much it. You should have a workflow set up to publish and maintain a static site or blog powered by Hugo. You can do some customizations based on your need. For example, I made a custom static home page for my blog instead of using the default list page view of the hugo site by adding a new post called &lt;strong&gt;_index.md&lt;/strong&gt;, and display a list page for posts by adding a &lt;strong&gt;posts.md&lt;/strong&gt; file in the &lt;em&gt;archetypes&lt;/em&gt; directory.&lt;/p&gt;
+&lt;p&gt;Check out the official &lt;a href=&#34;https://gohugo.io/documentation/&#34;&gt;docs&lt;/a&gt; for more details.&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>An Introduction to Git</title>
          <link>https://adbose.github.io/posts/05/</link>
          <pubDate>Sat, 06 Jun 2020 15:34:23 +0530</pubDate>
          
@@ -74,19 +130,19 @@ git merge mylocalbranch
 &lt;p&gt;Below is a visualization of a basic Git workflow:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/personal-website/share/git_overview.png&#34; alt=&#34;Git Overview&#34;&gt;&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s pretty much all the fundamentals needed to get started with Git. For a list of some of the most commonly used Git commands, please refer to this &lt;a href=&#34;https://gist.github.com/adbose/e24ba1754cce1a02e2cfd807d7a06e9c&#34;&gt;Gist&lt;/a&gt;. I shall try to post some updates in future posts covering some advanced workflows in Git like resolving merge conflicts, resetting or reverting changes, rebasing, working with submodules, etc.&lt;/p&gt;
-&lt;p&gt;See you later!&lt;/p&gt;
+&lt;p&gt;See you in another one!&lt;/p&gt;
 </description>
        </item>
        
        <item>
-         <title>The Covid-19 Tweeter</title>
+         <title>Covid-19 Stats Tweeter</title>
          <link>https://adbose.github.io/posts/04/</link>
          <pubDate>Sat, 16 May 2020 13:56:48 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/04/</guid>
-         <description>&lt;p&gt;So I finally got developer account access from Twitter to post automated coronavirus updates which I had applied for last &lt;a href=&#34;../01&#34;&gt;month&lt;/a&gt;.
+         <description>&lt;p&gt;So I finally got developer account access from Twitter which I had applied for last &lt;a href=&#34;../01&#34;&gt;month&lt;/a&gt; to post automated coronavirus updates.
 In this part, we will look at the process of creating an app, and developing the code to post tweets programmatically.&lt;/p&gt;
-&lt;p&gt;We are going to use Python3 as our programming language and the &lt;code&gt;tweepy&lt;/code&gt; python library to access Twiiter&amp;rsquo;s APIs, along with &lt;code&gt;lxml&lt;/code&gt; to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.&lt;/p&gt;
+&lt;p&gt;We are going to use Python3 as our programming language and use the &lt;code&gt;tweepy&lt;/code&gt; python library to access Twitter&amp;rsquo;s APIs along with &lt;code&gt;lxml&lt;/code&gt; package to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.&lt;/p&gt;
 &lt;p&gt;First, we go to the &lt;a href=&#34;https://developer.twitter.com/en/apps&#34;&gt;apps page&lt;/a&gt; and create an app. We give an app name, add a description and a website url. dd description and a website url. At the bottom, we need to describe briefly how we are going to use the app, and press create.&lt;/p&gt;
 &lt;p&gt;Once created, go to the &lt;em&gt;Keys and Tokens&lt;/em&gt; tab, and generate Access Token and Access Token Secret, and copy them along with the consumer API keys in a python file called &lt;em&gt;config.py&lt;/em&gt; as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;CONSUMER_KEY = &#39;&amp;lt;API key&amp;gt;&#39;
@@ -107,7 +163,7 @@ api.verify_credentials()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We now have a basic Twitter bot ready, and can post tweets whenever we run our script. Feel free to checkout the code on &lt;a href=&#34;https://github.com/adbose/covid-tweeter&#34;&gt;Github&lt;/a&gt; and send PRs to improve this bot.&lt;/p&gt;
 &lt;p&gt;Also, follow the bot &lt;a href=&#34;https://twitter.com/covidtrackerbot&#34;&gt;@covidtrackerbot&lt;/a&gt; on Twitter, and press the bell icon to get notified whenever there is a new tweet.&lt;/p&gt;
 &lt;p&gt;Our next steps would be to host it online and add more functionality like tweeting periodically from an infinite loop, or tweeting country-wise stats as they are updated on Worldometer.&lt;/p&gt;
-&lt;p&gt;Stay tuned for updates!&lt;/p&gt;
+&lt;p&gt;Stay tuned for further updates!&lt;/p&gt;
 </description>
        </item>
        
@@ -122,16 +178,16 @@ api.verify_credentials()
 This seemed like a good opportunity to test out my ideas for a Covid Tracker as a WhatsApp bot.&lt;/p&gt;
 &lt;p&gt;We have already seen how we can import twilio to a python script to use it&amp;rsquo;s APIs to send messages to users.&lt;/p&gt;
 &lt;p&gt;In this project, we would create a Flask app and use Twilio&amp;rsquo;s &lt;code&gt;twiml&lt;/code&gt; APIs to send meaningful information based on user queries.&lt;/p&gt;
-&lt;p&gt;Our original intent from the &lt;a href=&#34;../01&#34;&gt;first&lt;/a&gt; post was to be able to get notified on the latest Covid-19 case stats. The easy solution that I wanted to implement was a Twitter bot that tweets every time it receives updated stats from it&amp;rsquo;s trusted data sources. Since I have yet not recevied **Developer access for Twitter, I deceided to implement an information system related to Covid-19 over WhatsApp. It is not free to send self initiated messages, and to be able to send such messages, one needs to apply for a Business Account with WhatsApp which again goes through an approval process which again takes several weeks. We are gonna worry about all that later, and start building and testing right away using the Twilio Sandbox for WhatsApp.&lt;/p&gt;
+&lt;p&gt;Our original intent from the &lt;a href=&#34;../01&#34;&gt;first&lt;/a&gt; post was to be able to get notified on the latest Covid-19 case stats. The easy solution that I wanted to implement was a Twitter bot that tweets every time it receives updated stats from it&amp;rsquo;s trusted data sources. Since I have yet not recevied Developer access for Twitter, I deceided to implement an information system related to Covid-19 over WhatsApp. It is not free to send self initiated messages, and to be able to send such messages, one needs to apply for a Business Account with WhatsApp which again goes through an approval process which again takes several weeks. We are gonna worry about all that later, and start building and testing right away using the Twilio Sandbox for WhatsApp.&lt;/p&gt;
 &lt;p&gt;My main objective for the Hackathon was to show daily and total Covid-19 cases in India. Using the location services of WhatsApp, we could also get nearby case statistics andn essential services information for users to have an idea of the neighbourhood they are in.&lt;/p&gt;
 &lt;p&gt;The project is developed using Python3.8 with the Flask web microframework, and uses Twilio&amp;rsquo;s Programmable SMS API for WhatsApp. Let us start by first installing &lt;code&gt;flask&lt;/code&gt; and &lt;code&gt;twilio&lt;/code&gt; in a new virtual environment, after which we can start developing by importing these dependencies in our code.&lt;/p&gt;
 &lt;p&gt;The next step is to source the data. For country level and total global Covid-19 stats, Worldometers is probably the most popular site on the Internet. They have paid licences starting $35/month to access their data APIs, but I didn&amp;rsquo;t wish to pay any money to get started with the project which is mainly an experimental one for educational purposes. So, using an open source MIT licence for fair and non-commercial use, I assumed I could safely scrape the publicly available data from their site and get all the country level stats at a given moment.&lt;/p&gt;
 &lt;p&gt;Given below is a script that we could write to fetch the current stats from Worldometers on the global cases, deaths and recoveries:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    response = requests.get(&#39;https://www.worldometers.info/coronavirus/&#39;)
-    doc = html.fromstring(response.content)
-    country_names = doc.xpath(
-            &#39;//table[@id=&amp;quot;main_table_countries_today&amp;quot;]/tbody/tr/td[2]/a[contains(@href, &amp;quot;country/&amp;quot;)]/text()&#39;)
-            print(country_names)
+&lt;pre&gt;&lt;code&gt;response = requests.get(&#39;https://www.worldometers.info/coronavirus/&#39;)
+doc = html.fromstring(response.content)
+country_names = doc.xpath(
+    &#39;//table[@id=&amp;quot;main_table_countries_today&amp;quot;]/tbody/tr/td[2]/a[contains(@href, &amp;quot;country/&amp;quot;)]/text()&#39;)
+print(country_names)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The result will be a list of names of countries as they are written in the Worldometers site in the main stats table.
 To scrape the website more reliably, I decided to use the &lt;code&gt;lxml&lt;/code&gt; Python package to parse the site XML using &lt;code&gt;xpath&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Luckily, getting India specific data is easier. The site &lt;a href=&#34;covid19india.org&#34;&gt;covid19india.org&lt;/a&gt; provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page &lt;a href=&#34;https://api.covid19india.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -165,13 +221,13 @@ To start using the Twilio API for WhatsApp in production, we will need to purcha
 We are going to skip this step for now and directly start developing our application, and test it out using the Sandbox in the console.&lt;/p&gt;
 &lt;p&gt;I will be using Python3 on my local development machine running Linux.&lt;/p&gt;
 &lt;p&gt;First, we need to copy the Accound SID and Auth Token from the Twilio console, and use them to set our environment variables that will allow our Python script to access our Twilio account and use the API.&lt;/p&gt;
-&lt;p&gt;From the terminal, run the export command to set our environment variables named &lt;code&gt;TWILIO_ACCOUNT_SID&lt;/code&gt; and &lt;code&gt;TWILIO_AUTH_TOKEN&lt;/code&gt;, as shown below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39; 
+&lt;p&gt;From the terminal, run the export command to set our environment variables named &lt;strong&gt;TWILIO_ACCOUNT_SID&lt;/strong&gt; and &lt;strong&gt;TWILIO_AUTH_TOKEN&lt;/strong&gt;, as shown below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39;
 # paste in your Account SID between single quotes
 
 export TWILIO_AUTH_TOKEN=&#39;&amp;lt;your twilio authentication token&amp;gt;&#39;
 # paste in your Auth Token between single quotes
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With our environment variables now set, we are ready to write our Python script and test it out. But first, we are going to create a new directory for our project. We are going to call it &lt;code&gt;whatsapp-test-bot&lt;/code&gt;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With our environment variables now set, we are ready to write our Python script and test it out. But first, we are going to create a new directory for our project. We are going to call it &lt;strong&gt;whatsapp-test-bot&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;From the terminal, run the command below to create our directory:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;mkdir whatsapp-test-bot
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, we are going to create a new virtual environment to keep our dependencies isolated from other projects.
@@ -183,7 +239,7 @@ Navigate to our newly created directory, and create a new virtual environment us
 &lt;pre&gt;&lt;code&gt;source ./whatsapp_test_env/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, install the Twilio Python helper library into the virtual environment:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pip install twilio
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, create a file named &lt;code&gt;app.py&lt;/code&gt; and add the following code:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, create a file named &lt;strong&gt;app.py&lt;/strong&gt; and add the following code:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;from twilio.rest import Client
 
 # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN

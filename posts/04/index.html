@@ -66,7 +66,7 @@
 
 <article>
 
-    <h1>The Covid-19 Tweeter</h1>
+    <h1>Covid-19 Stats Tweeter</h1>
 
     
         <aside>
@@ -99,9 +99,9 @@
 
     
 
-    <p>So I finally got developer account access from Twitter to post automated coronavirus updates which I had applied for last <a href="../01">month</a>.
+    <p>So I finally got developer account access from Twitter which I had applied for last <a href="../01">month</a> to post automated coronavirus updates.
 In this part, we will look at the process of creating an app, and developing the code to post tweets programmatically.</p>
-<p>We are going to use Python3 as our programming language and the <code>tweepy</code> python library to access Twiiter&rsquo;s APIs, along with <code>lxml</code> to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.</p>
+<p>We are going to use Python3 as our programming language and use the <code>tweepy</code> python library to access Twitter&rsquo;s APIs along with <code>lxml</code> package to parse the Worldometers site for data. We need to install these dependencies in a new python virtual environment, and activate it to start developing.</p>
 <p>First, we go to the <a href="https://developer.twitter.com/en/apps">apps page</a> and create an app. We give an app name, add a description and a website url. dd description and a website url. At the bottom, we need to describe briefly how we are going to use the app, and press create.</p>
 <p>Once created, go to the <em>Keys and Tokens</em> tab, and generate Access Token and Access Token Secret, and copy them along with the consumer API keys in a python file called <em>config.py</em> as below:</p>
 <pre><code>CONSUMER_KEY = '&lt;API key&gt;'
@@ -122,7 +122,7 @@ api.verify_credentials()
 </code></pre><p>We now have a basic Twitter bot ready, and can post tweets whenever we run our script. Feel free to checkout the code on <a href="https://github.com/adbose/covid-tweeter">Github</a> and send PRs to improve this bot.</p>
 <p>Also, follow the bot <a href="https://twitter.com/covidtrackerbot">@covidtrackerbot</a> on Twitter, and press the bell icon to get notified whenever there is a new tweet.</p>
 <p>Our next steps would be to host it online and add more functionality like tweeting periodically from an infinite loop, or tweeting country-wise stats as they are updated on Worldometer.</p>
-<p>Stay tuned for updates!</p>
+<p>Stay tuned for further updates!</p>
 
 
 </article>
@@ -137,7 +137,7 @@ api.verify_credentials()
         
         
         <li>
-            <a href="https://adbose.github.io/posts/05/">Git Smarter <i class="fa fa-chevron-circle-right"></i> </a>
+            <a href="https://adbose.github.io/posts/05/">An Introduction to Git <i class="fa fa-chevron-circle-right"></i> </a>
         </li>
         
     </ul>

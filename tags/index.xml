@@ -6,10 +6,19 @@
        <description>Recent content in Tags on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 06 Jun 2020 15:34:23 +0530</lastBuildDate>
+       <lastBuildDate>Fri, 19 Jun 2020 11:39:54 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
        
+       
+       <item>
+         <title>hugo</title>
+         <link>https://adbose.github.io/tags/hugo/</link>
+         <pubDate>Fri, 19 Jun 2020 11:39:54 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/tags/hugo/</guid>
+         <description></description>
+       </item>
        
        <item>
          <title>git</title>
@@ -17,6 +26,15 @@
          <pubDate>Sat, 06 Jun 2020 15:34:23 +0530</pubDate>
          
          <guid>https://adbose.github.io/tags/git/</guid>
+         <description></description>
+       </item>
+       
+       <item>
+         <title>github</title>
+         <link>https://adbose.github.io/tags/github/</link>
+         <pubDate>Sat, 06 Jun 2020 15:34:23 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/tags/github/</guid>
          <description></description>
        </item>
        
