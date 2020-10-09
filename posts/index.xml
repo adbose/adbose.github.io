@@ -6,13 +6,42 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Fri, 19 Jun 2020 11:39:54 +0530</lastBuildDate>
+       <lastBuildDate>Sat, 11 Jul 2020 00:49:48 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
        
        <item>
-         <title>Blogging with Hugo</title>
+         <title>Reset Forgotten Login Keyring In Ubuntu</title>
+         <link>https://adbose.github.io/posts/07/</link>
+         <pubDate>Sat, 11 Jul 2020 00:49:48 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/07/</guid>
+         <description>&lt;p&gt;If you&amp;rsquo;ve ever changed your Ubuntu login password, you should also change your keyring password. If you don’t do it, it might display the following dialog when you do certain things on your system like connecting to wireless, starting up your browser, etc.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/assets/master/unlock-login-keyring.png&#34; alt=&#34;Unlock Login Ketring&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ever since I installed Chrome a few weeks ago, and saved the login passwords of some sites, I&amp;rsquo;ve been seeing this popup on my screen whenever I open Chrome. The popup disappears though, after clicking on Cancel several times. Since I mostly use Firefox to browse the Internet which does not have such a problem, I kept on procrastinating fixing the issue.
+This week, I finally decided to investigate the reason why this might be happening, and document the steps I took to fix it.&lt;/p&gt;
+&lt;p&gt;The popup to unlock the login keyring appears in Chrome because it uses the Gnome keyring to save all the login and password for websites.&lt;/p&gt;
+&lt;p&gt;The easiest way to reset the login keyring is by going to the keyrings directory in the &lt;code&gt;.local&lt;/code&gt; inside your home directory, and removing the &lt;code&gt;login.keyring&lt;/code&gt;. You can do it from the console like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rm ~/.local/share/keyrings/login.keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This would reset everything including your keyring password and all passwords for websites saved on Chrome, and you can create a new keyring&lt;/p&gt;
+&lt;p&gt;If you want to only reset the keyring password, but keep the old passwords saved in the keyring, you need to first make a backup of the keyring like shown below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/.local/share/keyrings/
+cp login.keyring login.keyring.backup
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, delete the &lt;code&gt;login.keyring&lt;/code&gt; file by running:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rm ~/.local/share/keyrings/login.keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, create a new keyring file from Gnome Keyring with the name &lt;code&gt;login&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, replace the new keyring file with the backup of the old keyring file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/.local/share/keyrings/
+mv login.keyring.backup login.keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it! This will solve the problem of the login keyring unlock popup appearing because of the Ubuntu login and keyring login password mismatch.&lt;/p&gt;
+&lt;p&gt;If you want to read more, there is a popular &lt;a href=&#34;https://askubuntu.com/questions/65281/how-to-recover-reset-forgotten-gnome-keyring-password&#34;&gt;question&lt;/a&gt; on Ask Ubuntu which has been answered by several people.&lt;/p&gt;
+&lt;p&gt;See you again in another one!&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>Blogging With Hugo</title>
          <link>https://adbose.github.io/posts/06/</link>
          <pubDate>Fri, 19 Jun 2020 11:39:54 +0530</pubDate>
          
@@ -68,7 +97,7 @@ git submodule add &amp;lt;Remote location of your username.github.io repo&amp;gt
        </item>
        
        <item>
-         <title>An Introduction to Git</title>
+         <title>An Introduction To Git</title>
          <link>https://adbose.github.io/posts/05/</link>
          <pubDate>Sat, 06 Jun 2020 15:34:23 +0530</pubDate>
          
@@ -128,7 +157,7 @@ git merge mylocalbranch
 &lt;p&gt;To incorporate the changes from the remote into your local repository, use the &lt;code&gt;git pull&lt;/code&gt; command which is the same as a &lt;code&gt;git fetch&lt;/code&gt; followed by a &lt;code&gt;git merge&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To update the remote with your saved or committed local changes, use the &lt;code&gt;git push&lt;/code&gt; command.&lt;/p&gt;
 &lt;p&gt;Below is a visualization of a basic Git workflow:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/personal-website/share/git_overview.png&#34; alt=&#34;Git Overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/assets/master/git_overview.png&#34; alt=&#34;Git Overview&#34;&gt;&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s pretty much all the fundamentals needed to get started with Git. For a list of some of the most commonly used Git commands, please refer to this &lt;a href=&#34;https://gist.github.com/adbose/e24ba1754cce1a02e2cfd807d7a06e9c&#34;&gt;Gist&lt;/a&gt;. I shall try to post some updates in future posts covering some advanced workflows in Git like resolving merge conflicts, resetting or reverting changes, rebasing, working with submodules, etc.&lt;/p&gt;
 &lt;p&gt;See you in another one!&lt;/p&gt;
 </description>
