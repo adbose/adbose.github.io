@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The HTML5 Herald" />
-  <meta name="author" content="" /><meta name="generator" content="Hugo 0.75.1" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.76.4" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
   <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
@@ -72,7 +72,7 @@
         <aside>
     <ul>
         <li>
-            <time class="post-date" datetime="2020-07-11T00:49:48&#43;05:30">Jul 11, 2020</time>
+            <time class="post-date" datetime="2020-06-30T00:49:48&#43;05:30">Jun 30, 2020</time>
         </li>
         
 
@@ -90,17 +90,17 @@
 This week, I finally decided to investigate the reason why this might be happening, and document the steps I took to fix it.</p>
 <p>The popup to unlock the login keyring appears in Chrome because it uses the Gnome keyring to save all the login and password for websites.</p>
 <p>The easiest way to reset the login keyring is by going to the keyrings directory in the <code>.local</code> inside your home directory, and removing the <code>login.keyring</code>. You can do it from the console like so:</p>
-<pre><code>rm ~/.local/share/keyrings/login.keyring
+<pre><code>$ rm ~/.local/share/keyrings/login.keyring
 </code></pre><p>This would reset everything including your keyring password and all passwords for websites saved on Chrome, and you can create a new keyring</p>
 <p>If you want to only reset the keyring password, but keep the old passwords saved in the keyring, you need to first make a backup of the keyring like shown below:</p>
-<pre><code>cd ~/.local/share/keyrings/
-cp login.keyring login.keyring.backup
+<pre><code>$ cd ~/.local/share/keyrings/
+$ cp login.keyring login.keyring.backup
 </code></pre><p>Then, delete the <code>login.keyring</code> file by running:</p>
-<pre><code>rm ~/.local/share/keyrings/login.keyring
+<pre><code>$ rm ~/.local/share/keyrings/login.keyring
 </code></pre><p>Then, create a new keyring file from Gnome Keyring with the name <code>login</code>.</p>
 <p>Finally, replace the new keyring file with the backup of the old keyring file.</p>
-<pre><code>cd ~/.local/share/keyrings/
-mv login.keyring.backup login.keyring
+<pre><code>$ cd ~/.local/share/keyrings/
+$ mv login.keyring.backup login.keyring
 </code></pre><p>That&rsquo;s it! This will solve the problem of the login keyring unlock popup appearing because of the Ubuntu login and keyring login password mismatch.</p>
 <p>If you want to read more, there is a popular <a href="https://askubuntu.com/questions/65281/how-to-recover-reset-forgotten-gnome-keyring-password">question</a> on Ask Ubuntu which has been answered by several people.</p>
 <p>See you again in another one!</p>
@@ -116,6 +116,10 @@ mv login.keyring.backup login.keyring
             <a href="https://adbose.github.io/posts/06/"><i class="fa fa-chevron-circle-left"></i> Blogging With Hugo</a>
         </li>
         
+        
+        <li>
+            <a href="https://adbose.github.io/posts/08/">An Introduction To Node.js <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
         
     </ul>
 </section>

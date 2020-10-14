@@ -20,7 +20,7 @@
          <description>&lt;h3 id=&#34;a-primer-on-source-control-using-git&#34;&gt;A primer on source control using Git&lt;/h3&gt;
 &lt;p&gt;Git is an open source distributed version control system created by Linus Torvalds in 2005 for collaborating with other developers contributing to the Linux kernel.&lt;/p&gt;
 &lt;p&gt;Although Git is used primarily by programmers for tracking changes in source code during software development, it can be used for tracking changes in any set of files.&lt;/p&gt;
-&lt;p&gt;This post is a quick introduction to Git covering the most important commands needed to use Git in your projects.&lt;/p&gt;
+&lt;p&gt;This post is a quick introduction to Git, covering the most important commands needed to use Git in your projects.&lt;/p&gt;
 &lt;p&gt;A Git project will have the following three main sections:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Git directory&lt;/li&gt;
@@ -33,42 +33,45 @@
 &lt;h3 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h3&gt;
 &lt;p&gt;To use Git in your projects, you need to first install it (if not already installed) in your system by following the instructions &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Verify if Git is installed by using the following command in the terminal:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git --version
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, configure your Git environment by setting certain configuration variable susing the &lt;code&gt;git config&lt;/code&gt; tool.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git --version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, configure your Git environment by setting certain configuration variable using &lt;code&gt;git config&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;There are three levels where these configuration variables are stored:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;System: located in /etc/gitconfig, applies default settings to every user of the computer. To make changes to this file, use the &amp;ndash;system option with the git config command.&lt;/li&gt;
 &lt;li&gt;User: located in ~/.gitconfig or ~/.config/git/config, applies settings to a single user. To make changes to this file, use the &amp;ndash;global option with the git config command.&lt;/li&gt;
 &lt;li&gt;Project: located in YOUR-PROJECT-PATH/.git/config, applies settings to the project only. To make changes to this file, use the git config command.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;To see all your configuration settings, use the command &lt;code&gt;git config --list&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;initialize-git-in-a-project&#34;&gt;Initialize Git in a Project&lt;/h3&gt;
+&lt;p&gt;To see all your configuration settings, use the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git config --list
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;initialize-git-in-a-project&#34;&gt;Initialize Git in a Project&lt;/h3&gt;
 &lt;p&gt;Once Git is installed and configured on your computer, you need to initialize it in your project to start using it for version control.&lt;/p&gt;
-&lt;p&gt;In the command line, use the &lt;code&gt;cd&lt;/code&gt; command to navigate to the root level directory of your project, and run the command &lt;code&gt;git init&lt;/code&gt;. This installs a &lt;strong&gt;Git directory&lt;/strong&gt; (&lt;em&gt;.git/&lt;/em&gt; folder with all the files and objects Git needs to track your project.&lt;/p&gt;
+&lt;p&gt;In the command line, use the &lt;code&gt;cd&lt;/code&gt; command to navigate to the root level directory of your project, and run the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git init
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This installs a &lt;strong&gt;Git directory&lt;/strong&gt; (&lt;em&gt;.git/&lt;/em&gt; folder with all the files and objects Git needs to track your project.&lt;/p&gt;
 &lt;h3 id=&#34;adding-and-committing-your-work&#34;&gt;Adding and Committing your work&lt;/h3&gt;
 &lt;p&gt;Once initialized, Git will start tracking the changes you make within the working directory of your project. You can check the status of your &lt;em&gt;working tree&lt;/em&gt; with the command &lt;code&gt;git status&lt;/code&gt; which shows important details about your project like current branch, and all the changes, staged or unstaged for committing.
 To add the changes to the staging area, use the &lt;code&gt;git add&lt;/code&gt; command followed by the files and directories to be added for commit.
 For example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add file1 file2 dir1/file3 dir2/
+&lt;pre&gt;&lt;code&gt;$ git add file1 file2 dir1/file3 dir2/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once addedd for staging, the changes can be committed with a commit message like below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git commit -m &amp;quot;Initial commit&amp;quot;
+&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;Initial commit&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;branches&#34;&gt;Branches&lt;/h3&gt;
 &lt;p&gt;A branch is nothing but a pointer to the latest commit in the Git repository referenced by HEAD. So currently, you are in the &lt;em&gt;master&lt;/em&gt; branch which is a pointer to the commit with the message “Initial commit”. Whenever you make a commit, HEAD is updated with the latest commit.&lt;/p&gt;
-&lt;p&gt;To work on a new task on the project, it is always advisable to create a new branch to avoid breaking the changes committed so far.&lt;/p&gt;
-&lt;p&gt;Create a new branch called &lt;em&gt;mylocalbranch&lt;/em&gt; and switch to that branch to start working on without affecting the master branch:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git checkout -b mylocalbranch
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can view all the branches in your repository with the &lt;code&gt;git branch&lt;/code&gt; command, and switch between branches using the &lt;code&gt;git checkout &amp;lt;branch_name&amp;gt;&lt;/code&gt; command.&lt;/p&gt;
-&lt;p&gt;Once you&amp;rsquo;re done with your changes, you can commit the changes and merge them to the master branch:&lt;/p&gt;
+&lt;p&gt;To work on any new task/issue on a project, it is always advised to create a new branch to avoid breaking the committed state so far.&lt;/p&gt;
+&lt;p&gt;Create and switch to a new branch using the &lt;code&gt;git checkout&lt;/code&gt; command with the &lt;code&gt;-b&lt;/code&gt; flag. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout -b mylocalbranch
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can view all the branches in your repository with the &lt;code&gt;git branch&lt;/code&gt; command, and switch between branches using the &lt;code&gt;git checkout&lt;/code&gt; followed by the branch name.&lt;/p&gt;
+&lt;p&gt;Once you&amp;rsquo;re done with your changes, you can commit and merge them to the master branch:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git commit -m &amp;quot;Commit changes to mylocalbranch&amp;quot;
 git checkout master
 git merge mylocalbranch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After this, you can safely delete that branch with the &lt;code&gt;git branch&lt;/code&gt; command along with the &lt;code&gt;-D&lt;/code&gt; flag like so:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git branch -D mylocalbranch
+&lt;pre&gt;&lt;code&gt;$ git branch -D mylocalbranch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can run &lt;code&gt;git log&lt;/code&gt; to see the commit history of your repository.&lt;/p&gt;
 &lt;h3 id=&#34;working-with-remotes&#34;&gt;Working with Remotes&lt;/h3&gt;
 &lt;p&gt;When working on a collaborative project, each collaborator works on a local copy of the project that sits on a remote repository, and periodically updates the remote with their local changes.&lt;/p&gt;
 &lt;p&gt;For that, we use a hosted Git service, a popular one being &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can start working on a local copy of an existing remote repository using the &lt;code&gt;git clone&lt;/code&gt; command with the URL of the remote repository as argument or create a new remote repository and set it to track your local repository using the &lt;code&gt;git remote add origin&lt;/code&gt; command with the URL of the remote repository as argument.&lt;/p&gt;
+&lt;p&gt;You can start working on a local copy of an existing remote repository using the &lt;code&gt;git clone&lt;/code&gt; command with the URL of the remote repository as argument or create a new remote repository and set it to track your local repository using the &lt;code&gt;git remote add&lt;/code&gt; command with name you want to give to the remote (eg. &lt;em&gt;remote&lt;/em&gt;) followed by the URL of the remote repository as argument.&lt;/p&gt;
 &lt;p&gt;To incorporate the changes from the remote into your local repository, use the &lt;code&gt;git pull&lt;/code&gt; command which is the same as a &lt;code&gt;git fetch&lt;/code&gt; followed by a &lt;code&gt;git merge&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To update the remote with your saved or committed local changes, use the &lt;code&gt;git push&lt;/code&gt; command.&lt;/p&gt;
 &lt;p&gt;Below is a visualization of a basic Git workflow:&lt;/p&gt;

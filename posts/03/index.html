@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The HTML5 Herald" />
-  <meta name="author" content="" /><meta name="generator" content="Hugo 0.75.1" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.76.4" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
   <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
@@ -125,8 +125,8 @@ To scrape the website more reliably, I decided to use the <code>lxml</code> Pyth
 <p>Luckily, getting India specific data is easier. The site <a href="covid19india.org">covid19india.org</a> provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page <a href="https://api.covid19india.org/">here</a>.</p>
 <p>We use the <code>requests</code> Python package and Python&rsquo;s inbuild <code>json</code> module to send a request to an API and get response in a Python data type which will be the JSON equivalent of the data like a <em>dict</em>.</p>
 <p>A typical request and response code would look something like this:</p>
-<pre><code>    response = requests.get(api_url)
-    return response.json()
+<pre><code>response = requests.get(api_url)
+return response.json()
 </code></pre><p>When users send their location in their message, we obtain the location coordinates from the <code>request.values</code> object of the request payload that WhatsApp receives. To encode and decode locations and places, we can use a third party geolocation service like Google Maps API. For the purposes of the hackathon, I used the free and public <a href="https://nominatim.org/">Nominatim Open Street Map API</a> from the <code>geopy</code> Python package.
 Using the location data, we were able to provide case stats by district, zone information, as well as essential services available nearby.</p>
 <h3 id="using-the-bot">Using The Bot</h3>

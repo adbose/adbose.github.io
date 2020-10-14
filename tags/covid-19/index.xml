@@ -70,8 +70,8 @@ To scrape the website more reliably, I decided to use the &lt;code&gt;lxml&lt;/c
 &lt;p&gt;Luckily, getting India specific data is easier. The site &lt;a href=&#34;covid19india.org&#34;&gt;covid19india.org&lt;/a&gt; provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page &lt;a href=&#34;https://api.covid19india.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We use the &lt;code&gt;requests&lt;/code&gt; Python package and Python&amp;rsquo;s inbuild &lt;code&gt;json&lt;/code&gt; module to send a request to an API and get response in a Python data type which will be the JSON equivalent of the data like a &lt;em&gt;dict&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;A typical request and response code would look something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    response = requests.get(api_url)
-    return response.json()
+&lt;pre&gt;&lt;code&gt;response = requests.get(api_url)
+return response.json()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When users send their location in their message, we obtain the location coordinates from the &lt;code&gt;request.values&lt;/code&gt; object of the request payload that WhatsApp receives. To encode and decode locations and places, we can use a third party geolocation service like Google Maps API. For the purposes of the hackathon, I used the free and public &lt;a href=&#34;https://nominatim.org/&#34;&gt;Nominatim Open Street Map API&lt;/a&gt; from the &lt;code&gt;geopy&lt;/code&gt; Python package.
 Using the location data, we were able to provide case stats by district, zone information, as well as essential services available nearby.&lt;/p&gt;
 &lt;h3 id=&#34;using-the-bot&#34;&gt;Using The Bot&lt;/h3&gt;

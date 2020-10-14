@@ -6,15 +6,100 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 11 Jul 2020 00:49:48 +0530</lastBuildDate>
+       <lastBuildDate>Fri, 18 Sep 2020 19:47:01 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
        
        <item>
+         <title>Smart Contracts</title>
+         <link>https://adbose.github.io/posts/10/</link>
+         <pubDate>Fri, 18 Sep 2020 19:47:01 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/10/</guid>
+         <description>&lt;h3 id=&#34;an-introduction-to-the-ehereum-blockchain-and-smart-contracts-using-solidity&#34;&gt;An Introduction to the Ehereum Blockchain and Smart Contracts using Solidity&lt;/h3&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>Understanding Blockchains</title>
+         <link>https://adbose.github.io/posts/09/</link>
+         <pubDate>Fri, 18 Sep 2020 19:00:24 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/09/</guid>
+         <description>&lt;h3 id=&#34;a-practical-introduction-to-blockchain-technology-using-python&#34;&gt;A Practical Introduction to Blockchain Technology using Python&lt;/h3&gt;
+&lt;p&gt;A blockchain is a fully-distributed, peer-to-peer software network which makes use of cryptography to securely host applications, store data, and easily transfer digital instruments of value that represent real-world money.&lt;/p&gt;
+&lt;p&gt;The concept of blockchains was introduced with the invention of Bitcoin in 2008 by Satoshi Nakamoto.&lt;/p&gt;
+&lt;p&gt;According to the whitepaper, Bitcoin is a peer-to-peer electronic cash system using a decentralised ledger or a blockchain.&lt;/p&gt;
+&lt;p&gt;Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain.&lt;/p&gt;
+&lt;p&gt;Bitcoin and most blockchain networks rely on some fundamentals concepts of cryptography like elliptic curve cryptography&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
+         <title>An Introduction To Node.js</title>
+         <link>https://adbose.github.io/posts/08/</link>
+         <pubDate>Sat, 11 Jul 2020 11:39:54 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/08/</guid>
+         <description>&lt;p&gt;Node.js is an open-source and cross-platform JavaScript runtime environment developed by Ryan Dahl in 2009. Built on Google Chrome&amp;rsquo;s V8 JavaScript engine, node.js allows developers to use JavaScript in the backend to create server-side applications.&lt;/p&gt;
+&lt;p&gt;Node.js uses a light-weight single-threaded event event loop architecture which runs applications in an asynchronous, event-driven, non-blocking I/O model. This makes it perfect for developing highly scalable &lt;em&gt;data-intensive&lt;/em&gt; real-time applications capable of handling multiple concurrent clients.
+However, because of its single-threaded architecture, node.js is not suitable for CPU-intensive applications.&lt;/p&gt;
+&lt;h2 id=&#34;installing-nodejs&#34;&gt;Installing Node.js&lt;/h2&gt;
+&lt;p&gt;In this post, we will focus on installing Node.js on a system running Ubuntu.&lt;/p&gt;
+&lt;p&gt;Node.js is available in the Ubuntu repository and we can easily install it using the &lt;code&gt;apt&lt;/code&gt; package manager.&lt;/p&gt;
+&lt;p&gt;First, refresh your local package index by running:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, install Node.js:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check that the installation was successful by running &lt;code&gt;node&lt;/code&gt; or &lt;code&gt;nodejs&lt;/code&gt; in the terminal. It should start up a new node shell in a new line like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can start coding right from the shell. Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; console.log(&amp;quot;hello node!&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hello node!
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can also check the version by running &lt;code&gt;node -v&lt;/code&gt; or &lt;code&gt;nodejs -v&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It is recommended to also install Node Package Manager(NPM) with Node.js. NPM is an open source library of Node.js packages.&lt;/p&gt;
+&lt;p&gt;To install NPM, run the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install npm
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Again, check that the installation was successful by running &lt;code&gt;npm -v&lt;/code&gt; or &lt;code&gt;npm --version&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once installed, you can use NPM to installed Node.js packages like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm install express
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can uninstall a node package using the npm uninstall command. Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm uninstall express
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To install both Node.js and NPM, for a specific version of &lt;em&gt;node&lt;/em&gt;, we can use a Node.js PPA (personal packaging archive) maintained by NodeSource.&lt;/p&gt;
+&lt;p&gt;We can use &lt;code&gt;curl&lt;/code&gt; to add the particular Node.js PPA to the system like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If &lt;code&gt;curl&lt;/code&gt; is not installed on your system, first install it using:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install curl
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, you can install the Node.js package using the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The nodejs package contains both the node and npm binaries. Verify that node and npm are installed using the commands &lt;code&gt;node -v&lt;/code&gt; and &lt;code&gt;npm -v&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another very important way to install a specific version of node.js, is using the Node Version Manager (NVM).&lt;/p&gt;
+&lt;p&gt;Visit the NVM GitHub repository, and from the &lt;a href=&#34;https://github.com/nvm-sh/nvm#installing-and-updating&#34;&gt; section&lt;/a&gt; page and copy either the &lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; command to download and install the nvm script:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(Note: Do not run these scripts with &lt;code&gt;sudo&lt;/code&gt; as it will enable nvm for the root user.)&lt;/p&gt;
+&lt;p&gt;Running the scripts will clone the project’s repository from Github to the &lt;code&gt;~/.nvm/&lt;/code&gt; directory. You will have to close and reopen your terminal to start using nvm.&lt;/p&gt;
+&lt;p&gt;To check that nvm is installed, type &lt;code&gt;nvm --version&lt;/code&gt;. If you get a version number back like &lt;code&gt;0.36.0&lt;/code&gt;, then you know nvm was successfully installed.&lt;/p&gt;
+&lt;p&gt;Now, you can install a specific version of Node.js, say, &lt;code&gt;14.5.0&lt;/code&gt; by simply running:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nvm install 14.5.0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To install the latest LTS (long term support) version, use the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nvm install --lts
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can list the installed Node.js versions with the command &lt;code&gt;nvm list&lt;/code&gt; or &lt;code&gt;nvm ls&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you want to change the currently active version, run &lt;code&gt;nvm use&lt;/code&gt; along with the version you want to switch to. Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nvm use 12.16.3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To change the default Node.js version, run the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nvm alias default 14.5.0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it. Now you have all that you need to start using Node.js to make backend applications.&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
          <title>Reset Forgotten Login Keyring In Ubuntu</title>
          <link>https://adbose.github.io/posts/07/</link>
-         <pubDate>Sat, 11 Jul 2020 00:49:48 +0530</pubDate>
+         <pubDate>Tue, 30 Jun 2020 00:49:48 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/07/</guid>
          <description>&lt;p&gt;If you&amp;rsquo;ve ever changed your Ubuntu login password, you should also change your keyring password. If you don’t do it, it might display the following dialog when you do certain things on your system like connecting to wireless, starting up your browser, etc.&lt;/p&gt;
@@ -23,17 +108,17 @@
 This week, I finally decided to investigate the reason why this might be happening, and document the steps I took to fix it.&lt;/p&gt;
 &lt;p&gt;The popup to unlock the login keyring appears in Chrome because it uses the Gnome keyring to save all the login and password for websites.&lt;/p&gt;
 &lt;p&gt;The easiest way to reset the login keyring is by going to the keyrings directory in the &lt;code&gt;.local&lt;/code&gt; inside your home directory, and removing the &lt;code&gt;login.keyring&lt;/code&gt;. You can do it from the console like so:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;rm ~/.local/share/keyrings/login.keyring
+&lt;pre&gt;&lt;code&gt;$ rm ~/.local/share/keyrings/login.keyring
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This would reset everything including your keyring password and all passwords for websites saved on Chrome, and you can create a new keyring&lt;/p&gt;
 &lt;p&gt;If you want to only reset the keyring password, but keep the old passwords saved in the keyring, you need to first make a backup of the keyring like shown below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd ~/.local/share/keyrings/
-cp login.keyring login.keyring.backup
+&lt;pre&gt;&lt;code&gt;$ cd ~/.local/share/keyrings/
+$ cp login.keyring login.keyring.backup
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, delete the &lt;code&gt;login.keyring&lt;/code&gt; file by running:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;rm ~/.local/share/keyrings/login.keyring
+&lt;pre&gt;&lt;code&gt;$ rm ~/.local/share/keyrings/login.keyring
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, create a new keyring file from Gnome Keyring with the name &lt;code&gt;login&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Finally, replace the new keyring file with the backup of the old keyring file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd ~/.local/share/keyrings/
-mv login.keyring.backup login.keyring
+&lt;pre&gt;&lt;code&gt;$ cd ~/.local/share/keyrings/
+$ mv login.keyring.backup login.keyring
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it! This will solve the problem of the login keyring unlock popup appearing because of the Ubuntu login and keyring login password mismatch.&lt;/p&gt;
 &lt;p&gt;If you want to read more, there is a popular &lt;a href=&#34;https://askubuntu.com/questions/65281/how-to-recover-reset-forgotten-gnome-keyring-password&#34;&gt;question&lt;/a&gt; on Ask Ubuntu which has been answered by several people.&lt;/p&gt;
 &lt;p&gt;See you again in another one!&lt;/p&gt;
@@ -52,17 +137,17 @@ mv login.keyring.backup login.keyring
 &lt;p&gt;The first thing that you need to do is install Hugo on your machine.&lt;/p&gt;
 &lt;p&gt;If you are on a Linux or Mac, you can use &lt;a href=&#34;https://brew.sh/&#34;&gt;Brew&lt;/a&gt; to install Hugo. For more options, see the official install docs &lt;a href=&#34;https://gohugo.io/getting-started/installing&#34;&gt;here&lt;/a&gt;. It&amp;rsquo;s also recommended to have &lt;a href=&#34;../05&#34;&gt;Git&lt;/a&gt; installed as well because it will make content management so much easier just like software version control.&lt;/p&gt;
 &lt;p&gt;To create a new site, simple run the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo new site mysite
+&lt;pre&gt;&lt;code&gt;$ hugo new site mysite
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will create a new Hugo site in a folder named &lt;em&gt;mysite&lt;/em&gt;. Navigate into the directory, and initialise a git repository inside it.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd mysite
-git init
+&lt;pre&gt;&lt;code&gt;$ cd mysite
+$ git init
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, you can add a theme to your site. I chose the &lt;em&gt;Kiera&lt;/em&gt; theme for my blog. You can choose any theme that suits your purpose from their collection of hundreds of themes &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;here&lt;/a&gt;. It&amp;rsquo;s recommended to download the theme into your site by using git submodule like below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git submodule add https://github.com/funkydan2/hugo-kiera.git themes/hugo-kiera
+&lt;pre&gt;&lt;code&gt;$ git submodule add https://github.com/funkydan2/hugo-kiera.git themes/hugo-kiera
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A new &lt;em&gt;.gitmodules&lt;/em&gt; file will be created containing the local path and remote URL of the submodule.&lt;/p&gt;
 &lt;p&gt;Then, add the theme to the site configuration:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;echo &#39;theme = &amp;quot;ananke&amp;quot;&#39; &amp;gt;&amp;gt; config.toml
+&lt;pre&gt;&lt;code&gt;$ echo &#39;theme = &amp;quot;ananke&amp;quot;&#39; &amp;gt;&amp;gt; config.toml
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you can start creating content by using the hugo new command from the site root like so:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo new posts/my-first-post.md
+&lt;pre&gt;&lt;code&gt;$ hugo new posts/my-first-post.md
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will create a post by the name &lt;em&gt;my-first-post&lt;/em&gt; in a &lt;em&gt;posts&lt;/em&gt; sub-directory inside the &lt;em&gt;content&lt;/em&gt; directory of the site.&lt;/p&gt;
 &lt;p&gt;Open the file in a text editor of your choice and start writing. Each new content file starts with some extra information about the post called front matter like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;+++
@@ -74,19 +159,19 @@ categories = []
 +++
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can start writing directly the contents below the front matter in markdown format as usual.&lt;/p&gt;
 &lt;p&gt;Once written, set the value of &lt;em&gt;drafts&lt;/em&gt; in your file&amp;rsquo;s front matter to &lt;code&gt;false&lt;/code&gt;, and launch a development server using the command&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo server
+&lt;pre&gt;&lt;code&gt;$ hugo server
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By default, this command will not deploy the files which have &lt;em&gt;drafts&lt;/em&gt; as &lt;code&gt;true&lt;/code&gt;. (&lt;a href=&#34;https://gohugo.io/getting-started/usage/#draft-future-and-expired-content&#34;&gt;Read More&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;To deploy draft files, use the command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo server -D
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once, you are satisfied with your changes, stop the server, and build your site by simply using the command:
-&lt;code&gt;hugo&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;To build the drafts too, use the command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo -D
+&lt;pre&gt;&lt;code&gt;$ hugo server -D
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once, you are satisfied with your changes, stop the server, and build your site by simply using the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To build the drafts too, use the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo -D
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Output will be in  the &lt;strong&gt;/public/&lt;/strong&gt; directory by default. You can change it by setting &lt;code&gt;publishDir&lt;/code&gt; to a directory name of your choice in the &lt;em&gt;config&lt;/em&gt; file. You may then deploy your site by copying the &lt;strong&gt;public/&lt;/strong&gt; directory to your production web server.&lt;/p&gt;
 &lt;p&gt;Now, to deploy this site using Github pages, simply create a repository of the name &lt;code&gt;username.github.io&lt;/code&gt; where &lt;em&gt;username&lt;/em&gt; is your Github account ID. It&amp;rsquo;s necessary to create the repo of that name because Github gives you a free website using your uniquie ID on the &lt;strong&gt;github.io&lt;/strong&gt; domain.&lt;/p&gt;
 &lt;p&gt;Clone the repository on your computer and add the contents of your site&amp;rsquo;s public directory into this new repo. Finally, commit and push. Your site should be live in a few minutes on your unique &lt;em&gt;github.io&lt;/em&gt; domain.&lt;/p&gt;
 &lt;p&gt;Before committing and pushing your &lt;strong&gt;mysite&lt;/strong&gt; repo to Github, first delete your public directory and add your &lt;em&gt;username.github.io&lt;/em&gt; repo as a submodule with the directory name &lt;strong&gt;public&lt;/strong&gt; like so:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;rm -r public/
+&lt;pre&gt;&lt;code&gt;$ rm -r public/
 git submodule add &amp;lt;Remote location of your username.github.io repo&amp;gt; public/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, every time you add new content to the site and build it, your &lt;em&gt;public&lt;/em&gt; directory will be updated. You can navigate inside the public directory and update your &lt;strong&gt;username.github.io&lt;/strong&gt; remote repository.&lt;/p&gt;
 &lt;p&gt;Once updated, navigate back to the &lt;strong&gt;mysite&lt;/strong&gt; root, and update its remote repository without pushing the contents of your theme or public directory. Instead, only a refernce to specific commits are added.
@@ -105,7 +190,7 @@ git submodule add &amp;lt;Remote location of your username.github.io repo&amp;gt
          <description>&lt;h3 id=&#34;a-primer-on-source-control-using-git&#34;&gt;A primer on source control using Git&lt;/h3&gt;
 &lt;p&gt;Git is an open source distributed version control system created by Linus Torvalds in 2005 for collaborating with other developers contributing to the Linux kernel.&lt;/p&gt;
 &lt;p&gt;Although Git is used primarily by programmers for tracking changes in source code during software development, it can be used for tracking changes in any set of files.&lt;/p&gt;
-&lt;p&gt;This post is a quick introduction to Git covering the most important commands needed to use Git in your projects.&lt;/p&gt;
+&lt;p&gt;This post is a quick introduction to Git, covering the most important commands needed to use Git in your projects.&lt;/p&gt;
 &lt;p&gt;A Git project will have the following three main sections:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Git directory&lt;/li&gt;
@@ -118,42 +203,45 @@ git submodule add &amp;lt;Remote location of your username.github.io repo&amp;gt
 &lt;h3 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h3&gt;
 &lt;p&gt;To use Git in your projects, you need to first install it (if not already installed) in your system by following the instructions &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Verify if Git is installed by using the following command in the terminal:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git --version
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, configure your Git environment by setting certain configuration variable susing the &lt;code&gt;git config&lt;/code&gt; tool.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git --version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, configure your Git environment by setting certain configuration variable using &lt;code&gt;git config&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;There are three levels where these configuration variables are stored:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;System: located in /etc/gitconfig, applies default settings to every user of the computer. To make changes to this file, use the &amp;ndash;system option with the git config command.&lt;/li&gt;
 &lt;li&gt;User: located in ~/.gitconfig or ~/.config/git/config, applies settings to a single user. To make changes to this file, use the &amp;ndash;global option with the git config command.&lt;/li&gt;
 &lt;li&gt;Project: located in YOUR-PROJECT-PATH/.git/config, applies settings to the project only. To make changes to this file, use the git config command.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;To see all your configuration settings, use the command &lt;code&gt;git config --list&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;initialize-git-in-a-project&#34;&gt;Initialize Git in a Project&lt;/h3&gt;
+&lt;p&gt;To see all your configuration settings, use the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git config --list
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;initialize-git-in-a-project&#34;&gt;Initialize Git in a Project&lt;/h3&gt;
 &lt;p&gt;Once Git is installed and configured on your computer, you need to initialize it in your project to start using it for version control.&lt;/p&gt;
-&lt;p&gt;In the command line, use the &lt;code&gt;cd&lt;/code&gt; command to navigate to the root level directory of your project, and run the command &lt;code&gt;git init&lt;/code&gt;. This installs a &lt;strong&gt;Git directory&lt;/strong&gt; (&lt;em&gt;.git/&lt;/em&gt; folder with all the files and objects Git needs to track your project.&lt;/p&gt;
+&lt;p&gt;In the command line, use the &lt;code&gt;cd&lt;/code&gt; command to navigate to the root level directory of your project, and run the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git init
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This installs a &lt;strong&gt;Git directory&lt;/strong&gt; (&lt;em&gt;.git/&lt;/em&gt; folder with all the files and objects Git needs to track your project.&lt;/p&gt;
 &lt;h3 id=&#34;adding-and-committing-your-work&#34;&gt;Adding and Committing your work&lt;/h3&gt;
 &lt;p&gt;Once initialized, Git will start tracking the changes you make within the working directory of your project. You can check the status of your &lt;em&gt;working tree&lt;/em&gt; with the command &lt;code&gt;git status&lt;/code&gt; which shows important details about your project like current branch, and all the changes, staged or unstaged for committing.
 To add the changes to the staging area, use the &lt;code&gt;git add&lt;/code&gt; command followed by the files and directories to be added for commit.
 For example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add file1 file2 dir1/file3 dir2/
+&lt;pre&gt;&lt;code&gt;$ git add file1 file2 dir1/file3 dir2/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once addedd for staging, the changes can be committed with a commit message like below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git commit -m &amp;quot;Initial commit&amp;quot;
+&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;Initial commit&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;branches&#34;&gt;Branches&lt;/h3&gt;
 &lt;p&gt;A branch is nothing but a pointer to the latest commit in the Git repository referenced by HEAD. So currently, you are in the &lt;em&gt;master&lt;/em&gt; branch which is a pointer to the commit with the message “Initial commit”. Whenever you make a commit, HEAD is updated with the latest commit.&lt;/p&gt;
-&lt;p&gt;To work on a new task on the project, it is always advisable to create a new branch to avoid breaking the changes committed so far.&lt;/p&gt;
-&lt;p&gt;Create a new branch called &lt;em&gt;mylocalbranch&lt;/em&gt; and switch to that branch to start working on without affecting the master branch:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git checkout -b mylocalbranch
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can view all the branches in your repository with the &lt;code&gt;git branch&lt;/code&gt; command, and switch between branches using the &lt;code&gt;git checkout &amp;lt;branch_name&amp;gt;&lt;/code&gt; command.&lt;/p&gt;
-&lt;p&gt;Once you&amp;rsquo;re done with your changes, you can commit the changes and merge them to the master branch:&lt;/p&gt;
+&lt;p&gt;To work on any new task/issue on a project, it is always advised to create a new branch to avoid breaking the committed state so far.&lt;/p&gt;
+&lt;p&gt;Create and switch to a new branch using the &lt;code&gt;git checkout&lt;/code&gt; command with the &lt;code&gt;-b&lt;/code&gt; flag. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout -b mylocalbranch
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can view all the branches in your repository with the &lt;code&gt;git branch&lt;/code&gt; command, and switch between branches using the &lt;code&gt;git checkout&lt;/code&gt; followed by the branch name.&lt;/p&gt;
+&lt;p&gt;Once you&amp;rsquo;re done with your changes, you can commit and merge them to the master branch:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git commit -m &amp;quot;Commit changes to mylocalbranch&amp;quot;
 git checkout master
 git merge mylocalbranch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After this, you can safely delete that branch with the &lt;code&gt;git branch&lt;/code&gt; command along with the &lt;code&gt;-D&lt;/code&gt; flag like so:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git branch -D mylocalbranch
+&lt;pre&gt;&lt;code&gt;$ git branch -D mylocalbranch
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can run &lt;code&gt;git log&lt;/code&gt; to see the commit history of your repository.&lt;/p&gt;
 &lt;h3 id=&#34;working-with-remotes&#34;&gt;Working with Remotes&lt;/h3&gt;
 &lt;p&gt;When working on a collaborative project, each collaborator works on a local copy of the project that sits on a remote repository, and periodically updates the remote with their local changes.&lt;/p&gt;
 &lt;p&gt;For that, we use a hosted Git service, a popular one being &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can start working on a local copy of an existing remote repository using the &lt;code&gt;git clone&lt;/code&gt; command with the URL of the remote repository as argument or create a new remote repository and set it to track your local repository using the &lt;code&gt;git remote add origin&lt;/code&gt; command with the URL of the remote repository as argument.&lt;/p&gt;
+&lt;p&gt;You can start working on a local copy of an existing remote repository using the &lt;code&gt;git clone&lt;/code&gt; command with the URL of the remote repository as argument or create a new remote repository and set it to track your local repository using the &lt;code&gt;git remote add&lt;/code&gt; command with name you want to give to the remote (eg. &lt;em&gt;remote&lt;/em&gt;) followed by the URL of the remote repository as argument.&lt;/p&gt;
 &lt;p&gt;To incorporate the changes from the remote into your local repository, use the &lt;code&gt;git pull&lt;/code&gt; command which is the same as a &lt;code&gt;git fetch&lt;/code&gt; followed by a &lt;code&gt;git merge&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To update the remote with your saved or committed local changes, use the &lt;code&gt;git push&lt;/code&gt; command.&lt;/p&gt;
 &lt;p&gt;Below is a visualization of a basic Git workflow:&lt;/p&gt;
@@ -222,8 +310,8 @@ To scrape the website more reliably, I decided to use the &lt;code&gt;lxml&lt;/c
 &lt;p&gt;Luckily, getting India specific data is easier. The site &lt;a href=&#34;covid19india.org&#34;&gt;covid19india.org&lt;/a&gt; provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page &lt;a href=&#34;https://api.covid19india.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We use the &lt;code&gt;requests&lt;/code&gt; Python package and Python&amp;rsquo;s inbuild &lt;code&gt;json&lt;/code&gt; module to send a request to an API and get response in a Python data type which will be the JSON equivalent of the data like a &lt;em&gt;dict&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;A typical request and response code would look something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    response = requests.get(api_url)
-    return response.json()
+&lt;pre&gt;&lt;code&gt;response = requests.get(api_url)
+return response.json()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When users send their location in their message, we obtain the location coordinates from the &lt;code&gt;request.values&lt;/code&gt; object of the request payload that WhatsApp receives. To encode and decode locations and places, we can use a third party geolocation service like Google Maps API. For the purposes of the hackathon, I used the free and public &lt;a href=&#34;https://nominatim.org/&#34;&gt;Nominatim Open Street Map API&lt;/a&gt; from the &lt;code&gt;geopy&lt;/code&gt; Python package.
 Using the location data, we were able to provide case stats by district, zone information, as well as essential services available nearby.&lt;/p&gt;
 &lt;h3 id=&#34;using-the-bot&#34;&gt;Using The Bot&lt;/h3&gt;
@@ -251,23 +339,21 @@ We are going to skip this step for now and directly start developing our applica
 &lt;p&gt;I will be using Python3 on my local development machine running Linux.&lt;/p&gt;
 &lt;p&gt;First, we need to copy the Accound SID and Auth Token from the Twilio console, and use them to set our environment variables that will allow our Python script to access our Twilio account and use the API.&lt;/p&gt;
 &lt;p&gt;From the terminal, run the export command to set our environment variables named &lt;strong&gt;TWILIO_ACCOUNT_SID&lt;/strong&gt; and &lt;strong&gt;TWILIO_AUTH_TOKEN&lt;/strong&gt;, as shown below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39;
-# paste in your Account SID between single quotes
+&lt;pre&gt;&lt;code&gt;$ export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39;
 
-export TWILIO_AUTH_TOKEN=&#39;&amp;lt;your twilio authentication token&amp;gt;&#39;
-# paste in your Auth Token between single quotes
+$ export TWILIO_AUTH_TOKEN=&#39;&amp;lt;your twilio authentication token&amp;gt;&#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With our environment variables now set, we are ready to write our Python script and test it out. But first, we are going to create a new directory for our project. We are going to call it &lt;strong&gt;whatsapp-test-bot&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;From the terminal, run the command below to create our directory:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mkdir whatsapp-test-bot
+&lt;pre&gt;&lt;code&gt;$ mkdir whatsapp-test-bot
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, we are going to create a new virtual environment to keep our dependencies isolated from other projects.
 Navigate to our newly created directory, and create a new virtual environment using the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;python3 -m venv whatsapp_test_env
+&lt;pre&gt;&lt;code&gt;$ python3 -m venv whatsapp_test_env
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or, if you have the virtualenv python package installed, run&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;virtualenv whatsapp_test_env
+&lt;pre&gt;&lt;code&gt;$ virtualenv whatsapp_test_env
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After creating the virtual environment, activate it using the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;source ./whatsapp_test_env/bin/activate
+&lt;pre&gt;&lt;code&gt;$ source ./whatsapp_test_env/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, install the Twilio Python helper library into the virtual environment:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;pip install twilio
+&lt;pre&gt;&lt;code&gt;$ pip install twilio
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, create a file named &lt;strong&gt;app.py&lt;/strong&gt; and add the following code:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;from twilio.rest import Client
 

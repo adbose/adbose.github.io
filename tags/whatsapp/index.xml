@@ -37,8 +37,8 @@ To scrape the website more reliably, I decided to use the &lt;code&gt;lxml&lt;/c
 &lt;p&gt;Luckily, getting India specific data is easier. The site &lt;a href=&#34;covid19india.org&#34;&gt;covid19india.org&lt;/a&gt; provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page &lt;a href=&#34;https://api.covid19india.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We use the &lt;code&gt;requests&lt;/code&gt; Python package and Python&amp;rsquo;s inbuild &lt;code&gt;json&lt;/code&gt; module to send a request to an API and get response in a Python data type which will be the JSON equivalent of the data like a &lt;em&gt;dict&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;A typical request and response code would look something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    response = requests.get(api_url)
-    return response.json()
+&lt;pre&gt;&lt;code&gt;response = requests.get(api_url)
+return response.json()
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When users send their location in their message, we obtain the location coordinates from the &lt;code&gt;request.values&lt;/code&gt; object of the request payload that WhatsApp receives. To encode and decode locations and places, we can use a third party geolocation service like Google Maps API. For the purposes of the hackathon, I used the free and public &lt;a href=&#34;https://nominatim.org/&#34;&gt;Nominatim Open Street Map API&lt;/a&gt; from the &lt;code&gt;geopy&lt;/code&gt; Python package.
 Using the location data, we were able to provide case stats by district, zone information, as well as essential services available nearby.&lt;/p&gt;
 &lt;h3 id=&#34;using-the-bot&#34;&gt;Using The Bot&lt;/h3&gt;
@@ -66,23 +66,21 @@ We are going to skip this step for now and directly start developing our applica
 &lt;p&gt;I will be using Python3 on my local development machine running Linux.&lt;/p&gt;
 &lt;p&gt;First, we need to copy the Accound SID and Auth Token from the Twilio console, and use them to set our environment variables that will allow our Python script to access our Twilio account and use the API.&lt;/p&gt;
 &lt;p&gt;From the terminal, run the export command to set our environment variables named &lt;strong&gt;TWILIO_ACCOUNT_SID&lt;/strong&gt; and &lt;strong&gt;TWILIO_AUTH_TOKEN&lt;/strong&gt;, as shown below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39;
-# paste in your Account SID between single quotes
+&lt;pre&gt;&lt;code&gt;$ export TWILIO_ACCOUNT_SID=&#39;&amp;lt;your twilio account sid&amp;gt;&#39;
 
-export TWILIO_AUTH_TOKEN=&#39;&amp;lt;your twilio authentication token&amp;gt;&#39;
-# paste in your Auth Token between single quotes
+$ export TWILIO_AUTH_TOKEN=&#39;&amp;lt;your twilio authentication token&amp;gt;&#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With our environment variables now set, we are ready to write our Python script and test it out. But first, we are going to create a new directory for our project. We are going to call it &lt;strong&gt;whatsapp-test-bot&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;From the terminal, run the command below to create our directory:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mkdir whatsapp-test-bot
+&lt;pre&gt;&lt;code&gt;$ mkdir whatsapp-test-bot
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, we are going to create a new virtual environment to keep our dependencies isolated from other projects.
 Navigate to our newly created directory, and create a new virtual environment using the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;python3 -m venv whatsapp_test_env
+&lt;pre&gt;&lt;code&gt;$ python3 -m venv whatsapp_test_env
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or, if you have the virtualenv python package installed, run&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;virtualenv whatsapp_test_env
+&lt;pre&gt;&lt;code&gt;$ virtualenv whatsapp_test_env
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After creating the virtual environment, activate it using the command below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;source ./whatsapp_test_env/bin/activate
+&lt;pre&gt;&lt;code&gt;$ source ./whatsapp_test_env/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, install the Twilio Python helper library into the virtual environment:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;pip install twilio
+&lt;pre&gt;&lt;code&gt;$ pip install twilio
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, create a file named &lt;strong&gt;app.py&lt;/strong&gt; and add the following code:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;from twilio.rest import Client
 

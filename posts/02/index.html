@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The HTML5 Herald" />
-  <meta name="author" content="" /><meta name="generator" content="Hugo 0.75.1" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.76.4" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
   <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
@@ -110,23 +110,21 @@ We are going to skip this step for now and directly start developing our applica
 <p>I will be using Python3 on my local development machine running Linux.</p>
 <p>First, we need to copy the Accound SID and Auth Token from the Twilio console, and use them to set our environment variables that will allow our Python script to access our Twilio account and use the API.</p>
 <p>From the terminal, run the export command to set our environment variables named <strong>TWILIO_ACCOUNT_SID</strong> and <strong>TWILIO_AUTH_TOKEN</strong>, as shown below:</p>
-<pre><code>export TWILIO_ACCOUNT_SID='&lt;your twilio account sid&gt;'
-# paste in your Account SID between single quotes
+<pre><code>$ export TWILIO_ACCOUNT_SID='&lt;your twilio account sid&gt;'
 
-export TWILIO_AUTH_TOKEN='&lt;your twilio authentication token&gt;'
-# paste in your Auth Token between single quotes
+$ export TWILIO_AUTH_TOKEN='&lt;your twilio authentication token&gt;'
 </code></pre><p>With our environment variables now set, we are ready to write our Python script and test it out. But first, we are going to create a new directory for our project. We are going to call it <strong>whatsapp-test-bot</strong>.</p>
 <p>From the terminal, run the command below to create our directory:</p>
-<pre><code>mkdir whatsapp-test-bot
+<pre><code>$ mkdir whatsapp-test-bot
 </code></pre><p>Next, we are going to create a new virtual environment to keep our dependencies isolated from other projects.
 Navigate to our newly created directory, and create a new virtual environment using the command below:</p>
-<pre><code>python3 -m venv whatsapp_test_env
+<pre><code>$ python3 -m venv whatsapp_test_env
 </code></pre><p>or, if you have the virtualenv python package installed, run</p>
-<pre><code>virtualenv whatsapp_test_env
+<pre><code>$ virtualenv whatsapp_test_env
 </code></pre><p>After creating the virtual environment, activate it using the command below:</p>
-<pre><code>source ./whatsapp_test_env/bin/activate
+<pre><code>$ source ./whatsapp_test_env/bin/activate
 </code></pre><p>Then, install the Twilio Python helper library into the virtual environment:</p>
-<pre><code>pip install twilio
+<pre><code>$ pip install twilio
 </code></pre><p>Finally, create a file named <strong>app.py</strong> and add the following code:</p>
 <pre><code>from twilio.rest import Client
 

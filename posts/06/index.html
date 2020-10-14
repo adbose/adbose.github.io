@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The HTML5 Herald" />
-  <meta name="author" content="" /><meta name="generator" content="Hugo 0.75.1" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.76.4" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
   <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
@@ -99,17 +99,17 @@
 <p>The first thing that you need to do is install Hugo on your machine.</p>
 <p>If you are on a Linux or Mac, you can use <a href="https://brew.sh/">Brew</a> to install Hugo. For more options, see the official install docs <a href="https://gohugo.io/getting-started/installing">here</a>. It&rsquo;s also recommended to have <a href="../05">Git</a> installed as well because it will make content management so much easier just like software version control.</p>
 <p>To create a new site, simple run the command below:</p>
-<pre><code>hugo new site mysite
+<pre><code>$ hugo new site mysite
 </code></pre><p>This will create a new Hugo site in a folder named <em>mysite</em>. Navigate into the directory, and initialise a git repository inside it.</p>
-<pre><code>cd mysite
-git init
+<pre><code>$ cd mysite
+$ git init
 </code></pre><p>Now, you can add a theme to your site. I chose the <em>Kiera</em> theme for my blog. You can choose any theme that suits your purpose from their collection of hundreds of themes <a href="https://themes.gohugo.io/">here</a>. It&rsquo;s recommended to download the theme into your site by using git submodule like below:</p>
-<pre><code>git submodule add https://github.com/funkydan2/hugo-kiera.git themes/hugo-kiera
+<pre><code>$ git submodule add https://github.com/funkydan2/hugo-kiera.git themes/hugo-kiera
 </code></pre><p>A new <em>.gitmodules</em> file will be created containing the local path and remote URL of the submodule.</p>
 <p>Then, add the theme to the site configuration:</p>
-<pre><code>echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
+<pre><code>$ echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
 </code></pre><p>Now you can start creating content by using the hugo new command from the site root like so:</p>
-<pre><code>hugo new posts/my-first-post.md
+<pre><code>$ hugo new posts/my-first-post.md
 </code></pre><p>This will create a post by the name <em>my-first-post</em> in a <em>posts</em> sub-directory inside the <em>content</em> directory of the site.</p>
 <p>Open the file in a text editor of your choice and start writing. Each new content file starts with some extra information about the post called front matter like this:</p>
 <pre><code>+++
@@ -121,19 +121,19 @@ categories = []
 +++
 </code></pre><p>You can start writing directly the contents below the front matter in markdown format as usual.</p>
 <p>Once written, set the value of <em>drafts</em> in your file&rsquo;s front matter to <code>false</code>, and launch a development server using the command</p>
-<pre><code>hugo server
+<pre><code>$ hugo server
 </code></pre><p>By default, this command will not deploy the files which have <em>drafts</em> as <code>true</code>. (<a href="https://gohugo.io/getting-started/usage/#draft-future-and-expired-content">Read More</a>)</p>
 <p>To deploy draft files, use the command:</p>
-<pre><code>hugo server -D
-</code></pre><p>Once, you are satisfied with your changes, stop the server, and build your site by simply using the command:
-<code>hugo</code></p>
-<p>To build the drafts too, use the command:</p>
-<pre><code>hugo -D
+<pre><code>$ hugo server -D
+</code></pre><p>Once, you are satisfied with your changes, stop the server, and build your site by simply using the command:</p>
+<pre><code>$ hugo
+</code></pre><p>To build the drafts too, use the command:</p>
+<pre><code>$ hugo -D
 </code></pre><p>Output will be in  the <strong>/public/</strong> directory by default. You can change it by setting <code>publishDir</code> to a directory name of your choice in the <em>config</em> file. You may then deploy your site by copying the <strong>public/</strong> directory to your production web server.</p>
 <p>Now, to deploy this site using Github pages, simply create a repository of the name <code>username.github.io</code> where <em>username</em> is your Github account ID. It&rsquo;s necessary to create the repo of that name because Github gives you a free website using your uniquie ID on the <strong>github.io</strong> domain.</p>
 <p>Clone the repository on your computer and add the contents of your site&rsquo;s public directory into this new repo. Finally, commit and push. Your site should be live in a few minutes on your unique <em>github.io</em> domain.</p>
 <p>Before committing and pushing your <strong>mysite</strong> repo to Github, first delete your public directory and add your <em>username.github.io</em> repo as a submodule with the directory name <strong>public</strong> like so:</p>
-<pre><code>rm -r public/
+<pre><code>$ rm -r public/
 git submodule add &lt;Remote location of your username.github.io repo&gt; public/
 </code></pre><p>Now, every time you add new content to the site and build it, your <em>public</em> directory will be updated. You can navigate inside the public directory and update your <strong>username.github.io</strong> remote repository.</p>
 <p>Once updated, navigate back to the <strong>mysite</strong> root, and update its remote repository without pushing the contents of your theme or public directory. Instead, only a refernce to specific commits are added.
