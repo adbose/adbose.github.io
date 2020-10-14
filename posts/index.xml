@@ -6,35 +6,10 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Fri, 18 Sep 2020 19:47:01 +0530</lastBuildDate>
+       <lastBuildDate>Sat, 11 Jul 2020 11:39:54 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
-       
-       <item>
-         <title>Smart Contracts</title>
-         <link>https://adbose.github.io/posts/10/</link>
-         <pubDate>Fri, 18 Sep 2020 19:47:01 +0530</pubDate>
-         
-         <guid>https://adbose.github.io/posts/10/</guid>
-         <description>&lt;h3 id=&#34;an-introduction-to-the-ehereum-blockchain-and-smart-contracts-using-solidity&#34;&gt;An Introduction to the Ehereum Blockchain and Smart Contracts using Solidity&lt;/h3&gt;
-</description>
-       </item>
-       
-       <item>
-         <title>Understanding Blockchains</title>
-         <link>https://adbose.github.io/posts/09/</link>
-         <pubDate>Fri, 18 Sep 2020 19:00:24 +0530</pubDate>
-         
-         <guid>https://adbose.github.io/posts/09/</guid>
-         <description>&lt;h3 id=&#34;a-practical-introduction-to-blockchain-technology-using-python&#34;&gt;A Practical Introduction to Blockchain Technology using Python&lt;/h3&gt;
-&lt;p&gt;A blockchain is a fully-distributed, peer-to-peer software network which makes use of cryptography to securely host applications, store data, and easily transfer digital instruments of value that represent real-world money.&lt;/p&gt;
-&lt;p&gt;The concept of blockchains was introduced with the invention of Bitcoin in 2008 by Satoshi Nakamoto.&lt;/p&gt;
-&lt;p&gt;According to the whitepaper, Bitcoin is a peer-to-peer electronic cash system using a decentralised ledger or a blockchain.&lt;/p&gt;
-&lt;p&gt;Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain.&lt;/p&gt;
-&lt;p&gt;Bitcoin and most blockchain networks rely on some fundamentals concepts of cryptography like elliptic curve cryptography&lt;/p&gt;
-</description>
-       </item>
        
        <item>
          <title>An Introduction To Node.js</title>
@@ -173,7 +148,9 @@ categories = []
 &lt;p&gt;Before committing and pushing your &lt;strong&gt;mysite&lt;/strong&gt; repo to Github, first delete your public directory and add your &lt;em&gt;username.github.io&lt;/em&gt; repo as a submodule with the directory name &lt;strong&gt;public&lt;/strong&gt; like so:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ rm -r public/
 git submodule add &amp;lt;Remote location of your username.github.io repo&amp;gt; public/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, every time you add new content to the site and build it, your &lt;em&gt;public&lt;/em&gt; directory will be updated. You can navigate inside the public directory and update your &lt;strong&gt;username.github.io&lt;/strong&gt; remote repository.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It may happen sometimes, that a git directory for &amp;lsquo;public&amp;rsquo; is found locally with the above remote. If you want to reuse this local git directory instead of cloning again from the remote,
+use the &amp;lsquo;&amp;ndash;force&amp;rsquo; option.&lt;/p&gt;
+&lt;p&gt;Now, every time you add new content to the site and build it, your &lt;em&gt;public&lt;/em&gt; directory will be updated. You can navigate inside the public directory and update your &lt;strong&gt;username.github.io&lt;/strong&gt; remote repository.&lt;/p&gt;
 &lt;p&gt;Once updated, navigate back to the &lt;strong&gt;mysite&lt;/strong&gt; root, and update its remote repository without pushing the contents of your theme or public directory. Instead, only a refernce to specific commits are added.
 (&lt;a href=&#34;https://github.com/adbose/personal-website&#34;&gt;See example&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s pretty much it. You should have a workflow set up to publish and maintain a static site or blog powered by Hugo. You can do some customizations based on your need. For example, I made a custom static home page for my blog instead of using the default list page view of the hugo site by adding a new post called &lt;strong&gt;_index.md&lt;/strong&gt;, and display a list page for posts by adding a &lt;strong&gt;posts.md&lt;/strong&gt; file in the &lt;em&gt;archetypes&lt;/em&gt; directory.&lt;/p&gt;
