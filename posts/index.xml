@@ -6,7 +6,7 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 11 Jul 2020 11:39:54 +0530</lastBuildDate>
+       <lastBuildDate>Sat, 04 Jul 2020 11:39:54 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
@@ -14,7 +14,7 @@
        <item>
          <title>An Introduction To Node.js</title>
          <link>https://adbose.github.io/posts/08/</link>
-         <pubDate>Sat, 11 Jul 2020 11:39:54 +0530</pubDate>
+         <pubDate>Sat, 04 Jul 2020 11:39:54 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/08/</guid>
          <description>&lt;p&gt;Node.js is an open-source and cross-platform JavaScript runtime environment developed by Ryan Dahl in 2009. Built on Google Chrome&amp;rsquo;s V8 JavaScript engine, node.js allows developers to use JavaScript in the backend to create server-side applications.&lt;/p&gt;
@@ -68,6 +68,42 @@ However, because of its single-threaded architecture, node.js is not suitable fo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To change the default Node.js version, run the following command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ nvm alias default 14.5.0
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s it. Now you have all that you need to start using Node.js to make backend applications.&lt;/p&gt;
+&lt;h2 id=&#34;creating-a-basic-http-server&#34;&gt;Creating a basic HTTP server&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s create a basic server in Node.js. Create a file with the name &lt;em&gt;server.js&lt;/em&gt; and add the following code in it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const http = require(&#39;http&#39;);
+
+const hostname = &amp;quot;127.0.0.1&amp;quot;;
+const port = 3000;
+
+http.createServer(function(req, res) {
+    res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/plain&#39;});
+    res.end(&#39;Hello Node!\n&#39;);
+}).listen(port, hostname, ()=&amp;gt;{
+    console.log(`Server is running at http://${hostname}:${port}/`);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Save the file, and from the terminal in the directory containing the file, run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ node server.js
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You should see the output below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Server is running at http://127.0.0.1:3000/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If we open the address in the browser, we should see the &lt;code&gt;Hello Node!&lt;/code&gt; message.&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s create the same basic web server, but using Express.&lt;/p&gt;
+&lt;h2 id=&#34;basic-express-server-in-nodejs&#34;&gt;Basic Express Server in Node.js&lt;/h2&gt;
+&lt;p&gt;Express is a web application framework for Node.js that allows you to spin up robust APIs and web servers in a much easier and cleaner way.&lt;/p&gt;
+&lt;p&gt;Simply install it via npm as you would with any other package.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm install express --save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With &lt;code&gt;express&lt;/code&gt; installed, create a file with the name &lt;em&gt;server.js&lt;/em&gt; and add the following code in it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const express = require(&#39;express&#39;);
+const app = express();
+
+app.get(&#39;/&#39;, (req, res) =&amp;gt; {
+    res.send(&#39;Hello Express!&#39;);
+});
+
+app.listen(3000, () =&amp;gt; console.log(&#39;Server is running at port 3000&#39;));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If we open the address in the browser, this time we should see the message &lt;code&gt;Hello Express!&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;That&amp;rsquo;s all I have for now. In this post, we covered quite a few concepts about Node.js, starting from installation using various methods, installing and removing packages, and usage in a sample web server application.&lt;/p&gt;
+&lt;p&gt;You can read more about Node.js from their official docs &lt;a href=&#34;https://nodejs.org/en/docs/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
        </item>
        
