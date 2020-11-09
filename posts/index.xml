@@ -6,15 +6,83 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 04 Jul 2020 11:39:54 +0530</lastBuildDate>
+       <lastBuildDate>Sat, 08 Aug 2020 21:17:11 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
        
        <item>
+         <title>Virtual Environments In Python</title>
+         <link>https://adbose.github.io/posts/09/</link>
+         <pubDate>Sat, 08 Aug 2020 21:17:11 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/09/</guid>
+         <description>&lt;p&gt;Often times, while developing applications in Python, one needs to install some external packages or dependencies.&lt;/p&gt;
+&lt;p&gt;Normally, third party packages installed using &lt;strong&gt;&lt;em&gt;easy_install&lt;/em&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/strong&gt; are typically placed in one of the directories pointed to by the &lt;code&gt;site.getsitepackages()&lt;/code&gt; function. For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import site
+&amp;gt;&amp;gt;&amp;gt; site.getsitepackages()
+[
+  &#39;/System/Library/Frameworks/Python.framework/Versions/3.5/Extras/lib/python&#39;,
+  &#39;/Library/Python/3.5/site-packages&#39;
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By default, every project on your system will use these same directories to store and retrieve &lt;strong&gt;&lt;em&gt;site packages&lt;/em&gt;&lt;/strong&gt; (third party libraries). But this becomes a problem if different projects use different versions of the same dependency which Python can&amp;rsquo;t differntiate between in the &lt;em&gt;site-packages/&lt;/em&gt; directory&amp;hellip;. breaking code.&lt;/p&gt;
+&lt;p&gt;This is where virtual environments come into picture, which provide a way to separate different Python environments for different projects.&lt;/p&gt;
+&lt;h2 id=&#34;creating-a-virtual-environment&#34;&gt;Creating a virtual environment&lt;/h2&gt;
+&lt;p&gt;Creating a virtual environment creates a new path for the Python executable as well as a copy of the Python version containing a &lt;em&gt;site-packages&lt;/em&gt; folder where each dependency is installed.
+Activating it sets up your shell to use the environment’s Python executable and its site-packages by default.&lt;/p&gt;
+&lt;p&gt;Versions of Python 3.6 and above come with the &lt;strong&gt;venv&lt;/strong&gt; module to create virtual environments. For example, running&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ python3 -m venv env
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;creates a new virtual environment with the name &lt;em&gt;env&lt;/em&gt; in the current working directory which would contain all the executable scripts along with the &lt;em&gt;site-packages&lt;/em&gt; directory where external dependencies get installed.&lt;/p&gt;
+&lt;p&gt;For Python2, we can create virtual environments using &lt;strong&gt;virtualenv&lt;/strong&gt;. Before using it, virtualenv should first be installed. We can install using &lt;em&gt;pip&lt;/em&gt; like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ pip install virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;after which we can create virtual environments like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ virtualenv env
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To activate the virtual environment run the &lt;code&gt;activate&lt;/code&gt; script from the terminal. In *nix systems, from the directory containing the environment variable directory, run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ source env/bin/activate
+(env) $
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This would modify the shell prompt with a prefix like above, indicating the virtual environment is currently active. This means the python executable will only use the environment’s packages and settings, and all external Python packages would be installed in that site-packages directory of the virtual environment.&lt;/p&gt;
+&lt;p&gt;Now, you can comfortable work on your own isolated Python environment without worrying about breaking code in other projects.&lt;/p&gt;
+&lt;p&gt;To deactivate the virtual environment, simply run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(env) $ deactivate
+$
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This would also remove the prefix indicating the virtual environment has been deactivated.&lt;/p&gt;
+&lt;h2 id=&#34;managing-virtual-environments-with-virtualenvwrapper&#34;&gt;Managing virtual environments with &lt;code&gt;virtualenvwrapper&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;As the number of virtual environments in the system increases, it can become difficult to remember and manage them. This is where &lt;strong&gt;virtualenvwrapper&lt;/strong&gt; comes in the picture. It&amp;rsquo;s just some wrapper scripts around the main &lt;em&gt;virtualenv&lt;/em&gt; tool which provides a few features like organizing all virtual environments in one location, commands to create, remove and switch between environments.&lt;/p&gt;
+&lt;p&gt;To install using &lt;em&gt;pip&lt;/em&gt;, run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ pip install virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once installed, activate its shell functions by running source on the installed &lt;em&gt;virtualenvwrapper.sh&lt;/em&gt; script.&lt;/p&gt;
+&lt;p&gt;For that, first find the location of &lt;em&gt;virtualenvwrapper.sh&lt;/em&gt; by running:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ which virtualenvwrapper.sh
+/usr/local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;which should return the path of the virtualenvwrapper.sh script like above.&lt;/p&gt;
+&lt;p&gt;Using that path, add the following three lines to your shell’s startup file. If you’re using the Bash shell, you would place these lines in either the &lt;em&gt;~/.bashrc&lt;/em&gt; file or the &lt;em&gt;~/.profile&lt;/em&gt; file like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs   # Optional
+export PROJECT_HOME=$HOME/projects      # Optional
+source /usr/local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and reload the startup file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;There should now be a directory located at &lt;em&gt;$WORKON_HOME&lt;/em&gt; that contains all of the virtualenvwrapper data/files.&lt;/p&gt;
+&lt;p&gt;Now, to create a new virtual environment, simply run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ mkvirtualenv env
+(env) $
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will create and activate a new environment in the directory located at &lt;em&gt;$WORKON_HOME&lt;/em&gt;, where all virtualenvwrapper environments are stored.&lt;/p&gt;
+&lt;p&gt;If you have many environments to choose from, you can list them all with the workon function:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ workon
+env
+env1
+env2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And activate a specific virtual environment like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ workon env2
+(env2) $
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;using-different-python-versions&#34;&gt;Using different Python versions&lt;/h2&gt;
+&lt;p&gt;Sometimes, when you want to switch between different versions of Python itself. For that, we have &lt;strong&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+       </item>
+       
+       <item>
          <title>An Introduction To Node.js</title>
          <link>https://adbose.github.io/posts/08/</link>
-         <pubDate>Sat, 04 Jul 2020 11:39:54 +0530</pubDate>
+         <pubDate>Fri, 17 Jul 2020 11:39:54 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/08/</guid>
          <description>&lt;p&gt;Node.js is an open-source and cross-platform JavaScript runtime environment developed by Ryan Dahl in 2009. Built on Google Chrome&amp;rsquo;s V8 JavaScript engine, node.js allows developers to use JavaScript in the backend to create server-side applications.&lt;/p&gt;
@@ -110,11 +178,11 @@ app.listen(3000, () =&amp;gt; console.log(&#39;Server is running at port 3000&#3
        <item>
          <title>Reset Forgotten Login Keyring In Ubuntu</title>
          <link>https://adbose.github.io/posts/07/</link>
-         <pubDate>Tue, 30 Jun 2020 00:49:48 +0530</pubDate>
+         <pubDate>Sat, 04 Jul 2020 00:49:48 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/07/</guid>
          <description>&lt;p&gt;If you&amp;rsquo;ve ever changed your Ubuntu login password, you should also change your keyring password. If you don’t do it, it might display the following dialog when you do certain things on your system like connecting to wireless, starting up your browser, etc.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/assets/master/unlock-login-keyring.png&#34; alt=&#34;Unlock Login Ketring&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/assets/master/unlock-login-keyring.png&#34; alt=&#34;Unlock Login Keyring&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ever since I installed Chrome a few weeks ago, and saved the login passwords of some sites, I&amp;rsquo;ve been seeing this popup on my screen whenever I open Chrome. The popup disappears though, after clicking on Cancel several times. Since I mostly use Firefox to browse the Internet which does not have such a problem, I kept on procrastinating fixing the issue.
 This week, I finally decided to investigate the reason why this might be happening, and document the steps I took to fix it.&lt;/p&gt;
 &lt;p&gt;The popup to unlock the login keyring appears in Chrome because it uses the Gnome keyring to save all the login and password for websites.&lt;/p&gt;
