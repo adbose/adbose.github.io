@@ -6,10 +6,28 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 08 Aug 2020 21:17:11 +0530</lastBuildDate>
+       <lastBuildDate>Sat, 31 Oct 2020 21:34:44 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
+       
+       <item>
+         <title>An Introduction To Bitcoin</title>
+         <link>https://adbose.github.io/posts/14/</link>
+         <pubDate>Sat, 31 Oct 2020 21:34:44 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/14/</guid>
+         <description>&lt;p&gt;In 2020, there would hardly be a person in tech who would not have heard of &lt;strong&gt;&lt;em&gt;Bitcoin&lt;/em&gt;&lt;/strong&gt;. A general idea which people have about Bitcoin is that it is a form of digital money which holds some value and which one can own or exchange for other goods. While this is mostly true, there is much more to Bitcoin than that. In this post, I shall try to give a simple introduction of the technology behind Bitcoin and how anyone can be a part of it and make it more robust.&lt;/p&gt;
+&lt;p&gt;According to its whitepaper, which was released on this date twelve years ago by the genius pseudonymous Satoshi Nakamoto, Bitcoin is &amp;ldquo;A Peer-to-Peer Electronic Cash System&amp;rdquo; which would allow online payments to be sent directly from one party to another without going through a financial institution.&lt;/p&gt;
+&lt;p&gt;Such a system must address the double-spending problem without relying on a trusted central authority. The Bitcoin whitepaper proposes a solution using a peer-to-peer network which timestamps transactions into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.&lt;/p&gt;
+&lt;p&gt;This record, with the computational proof of the chronological order of transactions, is called a &lt;strong&gt;&lt;em&gt;blockchain&lt;/em&gt;&lt;/strong&gt;, and the process of adding these transactions into the longest chain representing the greatest proof-of-work, is called &lt;strong&gt;&lt;em&gt;mining&lt;/em&gt;&lt;/strong&gt;. It is this process of mining that creates new Bitcoin as &amp;ldquo;block reward&amp;rdquo; for successfully adding a new block of transactions to the blockchain.&lt;/p&gt;
+&lt;p&gt;The Bitcoin network is a collection of computers called &lt;strong&gt;&lt;em&gt;nodes&lt;/em&gt;&lt;/strong&gt; running the Bitcoin Core software. Nodes that collect transactions into blocks and add it to the blockchain along with a proof-of-work, are called &lt;strong&gt;&lt;em&gt;miners&lt;/em&gt;&lt;/strong&gt;, while nodes that fully validate transactions and blocks and enforce the rules of the network are called &lt;strong&gt;&lt;em&gt;full nodes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Unlike Fiat currencies, the supply of Bitcoin is finite and capped at 21 million. With the reward getting halved every 210,000 blocks (which is approximately every 4 years), mining keeps getting more expensive and resource intensive, which over time can only be done by large companies having a lot of hash power. However, running a full node is accessible to anyone. In fact, for the Bitcoin network to operate securely, it requires many additional full nodes to ensure that miners are following the consensus rules. Running a full node helps the Bitcoin network become more decentralised, and thus more robust.&lt;/p&gt;
+&lt;p&gt;So, how can you run your own Bitcoin full node?&lt;/p&gt;
+&lt;p&gt;In the next part, we will dive into just that, after which you too can be Bitcoin!&lt;/p&gt;
+&lt;p&gt;Stay tuned!&lt;/p&gt;
+</description>
+       </item>
        
        <item>
          <title>Virtual Environments In Python</title>
@@ -75,7 +93,11 @@ env2
 &lt;pre&gt;&lt;code&gt;$ workon env2
 (env2) $
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;using-different-python-versions&#34;&gt;Using different Python versions&lt;/h2&gt;
-&lt;p&gt;Sometimes, when you want to switch between different versions of Python itself. For that, we have &lt;strong&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes, we want to switch between different versions of Python itself. For that, we have &lt;strong&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/strong&gt; which we can install in *nix systems with Homebrew like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install pyenv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or using pyenv-installer like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once installed, we can use it to install specific version of Python, use them for global or local use. Using the pyenv local command, to set the Python version for a specific project or directory by storing the version number in a .local-version file.&lt;/p&gt;
 </description>
        </item>
        
