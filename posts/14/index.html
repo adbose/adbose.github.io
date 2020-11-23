@@ -78,20 +78,24 @@
 
         
 
-        <li>2 minutes read</li>
+        <li>3 minutes read</li>
     </ul>
 </aside>
 
     
 
-    <p>In 2020, there would hardly be a person in tech who would not have heard of <strong><em>Bitcoin</em></strong>. A general idea which people have about Bitcoin is that it is a form of digital money which holds some value and which one can own or exchange for other goods. While this is mostly true, there is much more to Bitcoin than that. In this post, I shall try to give a simple introduction of the technology behind Bitcoin and how anyone can be a part of it and make it more robust.</p>
+    <p>In 2020, there would hardly be a person in tech who would not have heard of Bitcoin. A general idea which people mostly have is that it is a form of digital money which holds some value and which one can own or exchange for other goods. While this is mostly true, there is much more to Bitcoin than that. In this post, I shall try to give a simple introduction of the technology behind Bitcoin and how anyone can be a part of it and make it more robust.</p>
 <p>According to its whitepaper, which was released on this date twelve years ago by the genius pseudonymous Satoshi Nakamoto, Bitcoin is &ldquo;A Peer-to-Peer Electronic Cash System&rdquo; which would allow online payments to be sent directly from one party to another without going through a financial institution.</p>
 <p>Such a system must address the double-spending problem without relying on a trusted central authority. The Bitcoin whitepaper proposes a solution using a peer-to-peer network which timestamps transactions into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.</p>
 <p>This record, with the computational proof of the chronological order of transactions, is called a <strong><em>blockchain</em></strong>, and the process of adding these transactions into the longest chain representing the greatest proof-of-work, is called <strong><em>mining</em></strong>. It is this process of mining that creates new Bitcoin as &ldquo;block reward&rdquo; for successfully adding a new block of transactions to the blockchain.</p>
-<p>The Bitcoin network is a collection of computers called <strong><em>nodes</em></strong> running the Bitcoin Core software. Nodes that collect transactions into blocks and add it to the blockchain along with a proof-of-work, are called <strong><em>miners</em></strong>, while nodes that fully validate transactions and blocks and enforce the rules of the network are called <strong><em>full nodes</em></strong>.</p>
-<p>Unlike Fiat currencies, the supply of Bitcoin is finite and capped at 21 million. With the reward getting halved every 210,000 blocks (which is approximately every 4 years), mining keeps getting more expensive and resource intensive, which over time can only be done by large companies having a lot of hash power. However, running a full node is accessible to anyone. In fact, for the Bitcoin network to operate securely, it requires many additional full nodes to ensure that miners are following the consensus rules. Running a full node helps the Bitcoin network become more decentralised, and thus more robust.</p>
-<p>So, how can you run your own Bitcoin full node?</p>
-<p>In the next part, we will dive into just that, after which you too can be Bitcoin!</p>
+<p>The Bitcoin network is a collection of computers called <strong><em>nodes</em></strong> running the <strong>Bitcoin Core</strong> software. Nodes that collect transactions into blocks and add it to the blockchain along with a proof-of-work, are called <strong><em>miners</em></strong>, while nodes that fully validate transactions and blocks and enforce the rules of the network are called <strong><em>full nodes</em></strong>.</p>
+<p>The supply of Bitcoin is finite (unlike Fiat currencies), at close to 21 million. With the reward getting halved every 210,000 blocks (which is approximately every 4 years), mining keeps getting more expensive and resource intensive, which over time can only be done by large companies having a lot of hash power. However, running a full node is accessible to anyone. In fact, for the Bitcoin network to operate securely, it requires many additional full nodes to ensure that miners are following the consensus rules. Running a full node thus helps the Bitcoin network become more decentralised and robust.</p>
+<p>Full nodes work by accepting transactions and blocks from other full nodes, validating those transactions and blocks, and then relaying them to further full nodes. By running your own full node, you don’t have to trust anyone to keep the network honest — you do it yourself. If a transaction breaks consensus rules, your node will automatically reject it and it won’t be carried out, even if everyone else accepts the transaction. Having your own full node also means you can be sure that your transactions will be broadcast to the network, unlike running a lightweight client, where you have to rely on someone else’s full node to do that for you.</p>
+<blockquote>
+<p>If bitcoin is digital gold, then a full node wallet is your own personal goldsmith who checks for you that received payments are genuine. - <em>Chris Belcher</em>, creator of Electrum Personal Server.</p>
+</blockquote>
+<p>Full nodes are therefore the cornerstone of Bitcoin — they help keep the network decentralized and protect the protocol’s consensus rules. Anyone who truly wants to be a part of Bitcoin&rsquo;s success should run a full node. So, how can you run your own Bitcoin full node?</p>
+<p>In the next part, we will dive into just that, after which you too can become a part of Bitcoin!</p>
 <p>Stay tuned!</p>
 
 
@@ -105,6 +109,10 @@
             <a href="https://adbose.github.io/posts/09/"><i class="fa fa-chevron-circle-left"></i> Virtual Environments In Python</a>
         </li>
         
+        
+        <li>
+            <a href="https://adbose.github.io/posts/15/">Running A Bitcoin Full Node <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
         
     </ul>
 </section>

@@ -6,10 +6,60 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 31 Oct 2020 21:34:44 +0530</lastBuildDate>
+       <lastBuildDate>Sat, 14 Nov 2020 19:11:56 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
+       
+       <item>
+         <title>Running A Bitcoin Full Node</title>
+         <link>https://adbose.github.io/posts/15/</link>
+         <pubDate>Sat, 14 Nov 2020 19:11:56 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/15/</guid>
+         <description>&lt;p&gt;The previous post was a brief introduction on Bitcoin and full nodes. This post will cover how to set up a full node on your system.&lt;/p&gt;
+&lt;p&gt;Running your own Bitcoin full node means that you configured a computer with the Bitcoin Core software and have a full copy of the entire Blockchain database on it.&lt;/p&gt;
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;Bitcoin Core requires a one-time download of about 350GB of data plus a further 5-10GB per month. To run a full node, you will need a system that meets the following requirements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A desktop or a laptop computer running Windows, MacOS, or Linux&lt;/li&gt;
+&lt;li&gt;At least 2 GB of RAM&lt;/li&gt;
+&lt;li&gt;At least 500 GB of free disk space, with a minimum read/write speed of 100 MB/s&lt;/li&gt;
+&lt;li&gt;An unmetered broadband/fiber internet connection with high upload speed and limit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this post, we shall look into the process of installing a full node on a Linux machine from a pre-built binary version downloaded from the Bitcoin Core download page &lt;a href=&#34;https://bitcoincore.org/en/download/&#34;&gt;here&lt;/a&gt; or &lt;a href=&#34;https://bitcoin.org/en/download&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At the time of writing this post, the latest version is &lt;code&gt;0.20.1&lt;/code&gt;. Click the &lt;code&gt;Linux (tgz)&lt;/code&gt; link to download the file.&lt;/p&gt;
+&lt;p&gt;It is highly recommended to verify your download by verifying that its checksum is in &lt;a href=&#34;https://bitcoincore.org/bin/bitcoin-core-0.20.1/SHA256SUMS.asc&#34;&gt;this&lt;/a&gt; list of cryptographic checksums. Download this checksums file in the same directory as the downloaded bitcoin binary tgz file, and from this directory, run the following command in the terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sha256sum --ignore-missing --check SHA256SUMS.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;where &lt;code&gt;SHA256SUMS.asc&lt;/code&gt; is the downloaded checksums file.&lt;/p&gt;
+&lt;p&gt;You should see a line that shows &lt;code&gt;OK&lt;/code&gt; against the name of the downloaded file like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bitcoin-0.20.1-x86_64-linux-gnu.tar.gz: OK
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Next, obtain a copy of the &lt;strong&gt;&lt;em&gt;release signing key&lt;/em&gt;&lt;/strong&gt; by running the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The output of the command above should say that one key was imported like:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gpg --verify SHA256SUMS.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, verify that the checksums file is PGP signed by the release signing key:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gpg --verify SHA256SUMS.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The output from the verify command should contain a line that starts with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gpg: Good signature
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and a complete line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Primary key fingerprint: 01EA 5486 DE18 A882 D4C2  6845 90C8 019E 36C2 E964
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, if other people you trust can confirm that the key fingerprint printed above belongs to the Bitcoin Core Project&amp;rsquo;s release signing key, you have essentially verified your download. Now, you can proceed with installing Bitcoin on your system.&lt;/p&gt;
+&lt;p&gt;First, extract the downloaded Bitcoin GZipped Tar File with the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar xzf bitcoin-0.20.1-x86_64-linux-gnu.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will create the directory &lt;strong&gt;bitcoin-0.20.1/&lt;/strong&gt; within your current working directory. Then, install the contents of its &lt;strong&gt;bin/&lt;/strong&gt; subdirectory into the &lt;strong&gt;/usr/local/bin&lt;/strong&gt; directory of your system using the the &lt;code&gt;install&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-0.20.1/bin/*
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Navigate to the &lt;strong&gt;/usr/local/bin/&lt;/strong&gt; directory and run the &lt;code&gt;ls&lt;/code&gt; command. You should see the &lt;code&gt;bitcoin-cli&lt;/code&gt;, &lt;code&gt;bitcoind&lt;/code&gt;, and &lt;code&gt;bitcoin-qt&lt;/code&gt; executables.&lt;/p&gt;
+&lt;p&gt;To run Bitcoin Core GUI, simply run &lt;code&gt;bitcoin-qt&lt;/code&gt; from the terminal (make sure that the /usr/local/bin/ directory is in your PATH, which is usually true). If all the required libraries are installed, Bitcoin Core GUI will start and you will see a welcome screen like below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/assets/master/en-bitcoin-qt-welcome.png&#34; alt=&#34;Bitcoin Core GUI&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can specify the directory where Bitcoin Core will download and store a copy of the Bitcoin blockchain by choosing the default data directory, or by creating a custom data directory. This is also where the wallet will be stored.&lt;/p&gt;
+&lt;p&gt;Once done, Bitcoin Core GUI will begin the process of downloading the blockchain, which is known as Initial Block Download (IBD). This step will take at least several days for a first-time download, during which Bitcoin Core will use a significant part of your connection bandwidth. You can pause the IBD anytime by closing the Bitcoin Core application, which will resume from the last download point the next time you start it.&lt;/p&gt;
+&lt;p&gt;After download is complete, you may use Bitcoin Core as your wallet or you can just let it run to help support the Bitcoin network. You now have a full node running at port 8333.&lt;/p&gt;
+&lt;p&gt;For a more exhaustive read, check out the official docs for Running a full node &lt;a href=&#34;https://bitcoin.org/en/full-node&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the next part, we will look at how you can run a Lightning Node along with your full node.&lt;/p&gt;
+&lt;p&gt;Stay tuned!&lt;/p&gt;
+</description>
+       </item>
        
        <item>
          <title>An Introduction To Bitcoin</title>
@@ -17,14 +67,18 @@
          <pubDate>Sat, 31 Oct 2020 21:34:44 +0530</pubDate>
          
          <guid>https://adbose.github.io/posts/14/</guid>
-         <description>&lt;p&gt;In 2020, there would hardly be a person in tech who would not have heard of &lt;strong&gt;&lt;em&gt;Bitcoin&lt;/em&gt;&lt;/strong&gt;. A general idea which people have about Bitcoin is that it is a form of digital money which holds some value and which one can own or exchange for other goods. While this is mostly true, there is much more to Bitcoin than that. In this post, I shall try to give a simple introduction of the technology behind Bitcoin and how anyone can be a part of it and make it more robust.&lt;/p&gt;
+         <description>&lt;p&gt;In 2020, there would hardly be a person in tech who would not have heard of Bitcoin. A general idea which people mostly have is that it is a form of digital money which holds some value and which one can own or exchange for other goods. While this is mostly true, there is much more to Bitcoin than that. In this post, I shall try to give a simple introduction of the technology behind Bitcoin and how anyone can be a part of it and make it more robust.&lt;/p&gt;
 &lt;p&gt;According to its whitepaper, which was released on this date twelve years ago by the genius pseudonymous Satoshi Nakamoto, Bitcoin is &amp;ldquo;A Peer-to-Peer Electronic Cash System&amp;rdquo; which would allow online payments to be sent directly from one party to another without going through a financial institution.&lt;/p&gt;
 &lt;p&gt;Such a system must address the double-spending problem without relying on a trusted central authority. The Bitcoin whitepaper proposes a solution using a peer-to-peer network which timestamps transactions into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.&lt;/p&gt;
 &lt;p&gt;This record, with the computational proof of the chronological order of transactions, is called a &lt;strong&gt;&lt;em&gt;blockchain&lt;/em&gt;&lt;/strong&gt;, and the process of adding these transactions into the longest chain representing the greatest proof-of-work, is called &lt;strong&gt;&lt;em&gt;mining&lt;/em&gt;&lt;/strong&gt;. It is this process of mining that creates new Bitcoin as &amp;ldquo;block reward&amp;rdquo; for successfully adding a new block of transactions to the blockchain.&lt;/p&gt;
-&lt;p&gt;The Bitcoin network is a collection of computers called &lt;strong&gt;&lt;em&gt;nodes&lt;/em&gt;&lt;/strong&gt; running the Bitcoin Core software. Nodes that collect transactions into blocks and add it to the blockchain along with a proof-of-work, are called &lt;strong&gt;&lt;em&gt;miners&lt;/em&gt;&lt;/strong&gt;, while nodes that fully validate transactions and blocks and enforce the rules of the network are called &lt;strong&gt;&lt;em&gt;full nodes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Unlike Fiat currencies, the supply of Bitcoin is finite and capped at 21 million. With the reward getting halved every 210,000 blocks (which is approximately every 4 years), mining keeps getting more expensive and resource intensive, which over time can only be done by large companies having a lot of hash power. However, running a full node is accessible to anyone. In fact, for the Bitcoin network to operate securely, it requires many additional full nodes to ensure that miners are following the consensus rules. Running a full node helps the Bitcoin network become more decentralised, and thus more robust.&lt;/p&gt;
-&lt;p&gt;So, how can you run your own Bitcoin full node?&lt;/p&gt;
-&lt;p&gt;In the next part, we will dive into just that, after which you too can be Bitcoin!&lt;/p&gt;
+&lt;p&gt;The Bitcoin network is a collection of computers called &lt;strong&gt;&lt;em&gt;nodes&lt;/em&gt;&lt;/strong&gt; running the &lt;strong&gt;Bitcoin Core&lt;/strong&gt; software. Nodes that collect transactions into blocks and add it to the blockchain along with a proof-of-work, are called &lt;strong&gt;&lt;em&gt;miners&lt;/em&gt;&lt;/strong&gt;, while nodes that fully validate transactions and blocks and enforce the rules of the network are called &lt;strong&gt;&lt;em&gt;full nodes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The supply of Bitcoin is finite (unlike Fiat currencies), at close to 21 million. With the reward getting halved every 210,000 blocks (which is approximately every 4 years), mining keeps getting more expensive and resource intensive, which over time can only be done by large companies having a lot of hash power. However, running a full node is accessible to anyone. In fact, for the Bitcoin network to operate securely, it requires many additional full nodes to ensure that miners are following the consensus rules. Running a full node thus helps the Bitcoin network become more decentralised and robust.&lt;/p&gt;
+&lt;p&gt;Full nodes work by accepting transactions and blocks from other full nodes, validating those transactions and blocks, and then relaying them to further full nodes. By running your own full node, you don’t have to trust anyone to keep the network honest — you do it yourself. If a transaction breaks consensus rules, your node will automatically reject it and it won’t be carried out, even if everyone else accepts the transaction. Having your own full node also means you can be sure that your transactions will be broadcast to the network, unlike running a lightweight client, where you have to rely on someone else’s full node to do that for you.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If bitcoin is digital gold, then a full node wallet is your own personal goldsmith who checks for you that received payments are genuine. - &lt;em&gt;Chris Belcher&lt;/em&gt;, creator of Electrum Personal Server.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Full nodes are therefore the cornerstone of Bitcoin — they help keep the network decentralized and protect the protocol’s consensus rules. Anyone who truly wants to be a part of Bitcoin&amp;rsquo;s success should run a full node. So, how can you run your own Bitcoin full node?&lt;/p&gt;
+&lt;p&gt;In the next part, we will dive into just that, after which you too can become a part of Bitcoin!&lt;/p&gt;
 &lt;p&gt;Stay tuned!&lt;/p&gt;
 </description>
        </item>
