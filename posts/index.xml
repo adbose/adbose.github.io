@@ -6,10 +6,28 @@
        <description>Recent content in Posts on Aditya Bose</description>
        <generator>Hugo -- gohugo.io</generator>
        <copyright>Copyright &amp;copy; 2020 - Aditya Bose</copyright>
-       <lastBuildDate>Sat, 14 Nov 2020 19:11:56 +0530</lastBuildDate>
+       <lastBuildDate>Tue, 24 Nov 2020 16:35:22 +0530</lastBuildDate>
        
            <atom:link href="https://adbose.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
        
+       
+       <item>
+         <title>The Bulls Are Coming</title>
+         <link>https://adbose.github.io/posts/16/</link>
+         <pubDate>Tue, 24 Nov 2020 16:35:22 +0530</pubDate>
+         
+         <guid>https://adbose.github.io/posts/16/</guid>
+         <description>&lt;p&gt;The price of Bitcoin (BTC) hit $19,469 on Coinbase today, reaching its highest point since its December 2017 peak of $19,891 on Bitfinex.&lt;/p&gt;
+&lt;p&gt;A few days back, on the twelfth anniversary of its whitepaper, Bitcoin&amp;rsquo;s price crossed the $14,000 mark, observing its highest price since January 2018, when the cryptocurrency market was crashing more than 80% in a year, and going into a multi-year bear market.&lt;/p&gt;
+&lt;p&gt;Even after the almost 60% Covid-19 crash earlier this March, the Bitcoin network&amp;rsquo;s hashrate increased as expected post the halvening in May, and the price recovered organically as expected in free markets.&lt;/p&gt;
+&lt;p&gt;Compare it to the stock markets, which after almost 30% crashes (which technically makes it a bear market), are at their all-time-highs, made possible only with the massive corporate  bailouts by national governments. While the Federal Reserve in the US printed $3 trillion (plus another $2 trillion on the way), the Bank of England likely printed towards £1 trillion, and many more around the world are following suit. To put it into perspective, the Fed printed $3.9 trillion between 2008 and 2014, including the 2008 financial crisis. They have already surpassed this mark within the last seven months alone, with more to come. According to the Institute of International Finance, Governments and companies took on &lt;a href=&#34;https://www.ft.com/content/18527e0c-6f02-4c70-93cb-c26c3680c8ad&#34;&gt;$15 trillion&lt;/a&gt; more borrowing in first nine months of 2020, taking the debt to GDP ratio to 365%, up from 320% at the end of 2019.&lt;/p&gt;
+&lt;p&gt;This is exactly why Bitcoin exists. But, it is more than just a hedge against inflation. Bitcoin is essentially a massive short position against the entire financial system. It has value because it is unlike any asset class that has ever been. It is a digital asset that exists in a peer-to-peer permissionless network. As long as there is someone willing to keep the network running, Bitcoin will survive. It is fungible like gold, but unforgably scarce coupled with diminishing returns with the halvening of mining reward every four years. This is what makes it so desirable, and creates these recurring market cycles.&lt;/p&gt;
+&lt;p&gt;However, this time the demand for Bitcoin isn&amp;rsquo;t coming from the retail market as much as it is coming from institutions. A quick search at Google Trends for the word “Bitcoin” would show that the interest today isn’t anywhere close to that of 2017.&lt;/p&gt;
+&lt;p&gt;In October, Microstrategy became the first publicly traded company to add roughly 38,250 Bitcoins to their balance sheet, with Square closely following in their footsteps with a purchase of 4,709. Similarly, Grayscale added 32,000 bitcoin to their portfolio in the last month alone, while CashApp generated $1.6 billion worth of revenue from their customers buying bitcoin in Q3 2020, and PayPal has announced that their customers will be able to buy bitcoin come 2021. With only about 27,000 bitcoins that can be mined each month, combined with the rapidly depleting Bitcoin reserves in exchanges, we can only expect the Bitcoin price to go up as more companies start accumulating Bitcoin.&lt;/p&gt;
+&lt;p&gt;There are many qualified &lt;a href=&#34;https://twitter.com/100trillionUSD&#34;&gt;experts&lt;/a&gt; and price &lt;a href=&#34;https://medium.com/@100trillionUSD/bitcoin-stock-to-flow-cross-asset-model-50d260feed12&#34;&gt;models&lt;/a&gt; predicting the future price of Bitcoin. Predicting or speculating on the Bitcoin price is beyond the scope of this post. My main motive for writing this piece was to appreciate the Bitcoin phenomena as it is. I am not a financial advisor, and this post is not financial advice. &lt;a href=&#34;https://github.com/bitcoin/bitcoin&#34;&gt;Bitcoin&lt;/a&gt; is an experimental digital currency. DYOR and don&amp;rsquo;t put more money than you can afford to lose.&lt;/p&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
+       </item>
        
        <item>
          <title>Running A Bitcoin Full Node</title>
@@ -53,10 +71,10 @@
 &lt;p&gt;To run Bitcoin Core GUI, simply run &lt;code&gt;bitcoin-qt&lt;/code&gt; from the terminal (make sure that the /usr/local/bin/ directory is in your PATH, which is usually true). If all the required libraries are installed, Bitcoin Core GUI will start and you will see a welcome screen like below:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/adbose/assets/master/en-bitcoin-qt-welcome.png&#34; alt=&#34;Bitcoin Core GUI&#34;&gt;&lt;/p&gt;
 &lt;p&gt;You can specify the directory where Bitcoin Core will download and store a copy of the Bitcoin blockchain by choosing the default data directory, or by creating a custom data directory. This is also where the wallet will be stored.&lt;/p&gt;
-&lt;p&gt;Once done, Bitcoin Core GUI will begin the process of downloading the blockchain, which is known as Initial Block Download (IBD). This step will take at least several days for a first-time download, during which Bitcoin Core will use a significant part of your connection bandwidth. You can pause the IBD anytime by closing the Bitcoin Core application, which will resume from the last download point the next time you start it.&lt;/p&gt;
+&lt;p&gt;Once done, Bitcoin Core GUI will begin downloading the blockchain, a process which is known as Initial Block Download (IBD). This step will take at least several days for a first-time download, during which Bitcoin Core will use a significant part of your connection bandwidth. You can pause the IBD anytime by closing the Bitcoin Core application, which will resume from the last download point the next time you start it.&lt;/p&gt;
 &lt;p&gt;After download is complete, you may use Bitcoin Core as your wallet or you can just let it run to help support the Bitcoin network. You now have a full node running at port 8333.&lt;/p&gt;
 &lt;p&gt;For a more exhaustive read, check out the official docs for Running a full node &lt;a href=&#34;https://bitcoin.org/en/full-node&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In the next part, we will look at how you can run a Lightning Node along with your full node.&lt;/p&gt;
+&lt;p&gt;In the next part of this series, we will look at how you can run a Lightning Node along with your full node.&lt;/p&gt;
 &lt;p&gt;Stay tuned!&lt;/p&gt;
 </description>
        </item>
